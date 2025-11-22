@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Dashboard({ highContrast }) {
+export default function Dashboard({ highContrast, onStartTraining }) {
   // Style helpers for high contrast
   const backgroundColor = highContrast ? "#222" : "#fff";
   const boxColor = highContrast ? "#333" : "#fff";
@@ -90,6 +90,7 @@ export default function Dashboard({ highContrast }) {
                 marginTop: "26px",
                 alignSelf: "flex-start"
               }}
+              onClick={onStartTraining}
               aria-label="Start phishing training"
             >
               Start

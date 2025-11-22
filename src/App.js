@@ -32,7 +32,7 @@ export default function App() {
           <Dashboard highContrast={highContrast} />
         )}
       </main>
-      <footer style={{ position: "absolute", right: "20px", bottom: "20px" }}>
+      <footer style={{ position: "fixed", right: "32px", bottom: "32px",zIndex: 100, }}>
         <button
           aria-pressed={highContrast}
           aria-label={highContrast ? "Disable high contrast mode" : "Enable high contrast mode"}

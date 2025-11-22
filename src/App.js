@@ -4,11 +4,12 @@ import './App.css';
 import AccessibleButton from './AccessibleButton';
 import LoginForm from "./LoginForm";
 import React, { useState } from "react";
+import Dashboard from "./Dashboard";
 
 //export default App;
 export default function App() {
   const [highContrast, setHighContrast] = useState(false);
-
+  const [loggedIn, setLoggedIn] = useState(false); // false = show login, true = show dashboard
   return (
     <div
       style={{
@@ -24,7 +25,12 @@ export default function App() {
         <h1>PhishGuard</h1>
       </header>
       <main style={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <LoginForm highContrast={highContrast} />
+        {!loggedIn ? (
+          // Pass highContrast prop and setLoggedIn to handle login
+          <LoginForm highContrast={highContrast} onLogin={() => setLoggedIn(true)} />
+        ) : (
+          <Dashboard highContrast={highContrast} />
+        )}
       </main>
       <footer style={{ position: "absolute", right: "20px", bottom: "20px" }}>
         <button

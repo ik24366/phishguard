@@ -1,18 +1,22 @@
-// LoginForm.js
 import React, { useState } from "react";
 
-export default function LoginForm({ highContrast }) {
+export default function LoginForm({ highContrast, onLogin }) {
   const [showPassword, setShowPassword] = useState(false);
 
-  // Choose colors based on highContrast
+  // Color helpers
   const backgroundColor = highContrast ? "#222" : "#fff";
   const borderColor = highContrast ? "#fff" : "#ccc";
   const textColor = highContrast ? "#fff" : "#000";
   const inputBackground = highContrast ? "#333" : "#fff";
   const inputText = highContrast ? "#fff" : "#000";
+  const accentColor = highContrast ? "#ff0" : "#0073e6";
 
   return (
     <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onLogin(); // Switches to dashboard
+      }}
       style={{
         border: `2px solid ${borderColor}`,
         padding: "30px",
@@ -89,7 +93,7 @@ export default function LoginForm({ highContrast }) {
         style={{
           textAlign: "center",
           marginTop: "15px",
-          color: highContrast ? "#ff0" : "#0073e6",
+          color: accentColor,
           textDecoration: "underline",
         }}
       >
@@ -98,4 +102,3 @@ export default function LoginForm({ highContrast }) {
     </form>
   );
 }
-

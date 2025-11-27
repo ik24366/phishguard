@@ -1,12 +1,12 @@
+// TrainingModule2.jsx
 import React from "react";
 
-export default function TrainingModule({ highContrast, onNext }) {
+export default function TrainingModule2({ highContrast }) {
   const backgroundColor = highContrast ? "#222" : "#f5f7fb";
   const cardColor = highContrast ? "#333" : "#fff";
   const textColor = highContrast ? "#fff" : "#111";
   const borderColor = highContrast ? "#fff" : "#d0d4e4";
   const accentColor = highContrast ? "#ff0" : "#0073e6";
-
   const subtleText = highContrast ? "#ccc" : "#4b5563";
 
   const cardBase = {
@@ -34,13 +34,12 @@ export default function TrainingModule({ highContrast, onNext }) {
         background: backgroundColor,
         color: textColor,
         minHeight: "80vh",
-        padding: "32px 16px px",
+        padding: "32px 16px 48px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
     >
-      {/* Page header */}
       <header
         style={{
           width: "100%",
@@ -66,12 +65,10 @@ export default function TrainingModule({ highContrast, onNext }) {
             color: subtleText,
           }}
         >
-          Practice identifying phishing attempts using realistic scenarios
-          and immediate feedback.
+          Second scenario: practice identifying phishing in SMS messages.
         </p>
       </header>
 
-      {/* Top bar (could hold breadcrumbs / progress) */}
       <nav
         style={{
           ...cardBase,
@@ -84,18 +81,17 @@ export default function TrainingModule({ highContrast, onNext }) {
         }}
         aria-label="Training module navigation"
       >
-        <div style={{ fontWeight: 600 }}>Module: Email Phishing Basics</div>
+        <div style={{ fontWeight: 600 }}>Module: SMS & Mobile Alerts</div>
         <div
           style={{
             fontSize: "0.9rem",
             color: subtleText,
           }}
         >
-          Progress: <strong>3 / 10 questions</strong>
+          Progress: <strong>4 / 10 questions</strong>
         </div>
       </nav>
 
-      {/* Instructions */}
       <section
         style={{
           ...cardBase,
@@ -125,13 +121,12 @@ export default function TrainingModule({ highContrast, onNext }) {
             lineHeight: 1.6,
           }}
         >
-          <li>Review the email or message shown on the right.</li>
+          <li>Review the SMS shown on the right.</li>
           <li>Select the option that best describes whether it is phishing.</li>
-          <li>Use the feedback area below to understand what you missed.</li>
+          <li>Use feedback to learn which signals to look for.</li>
         </ul>
       </section>
 
-      {/* Main interaction area */}
       <section
         style={{
           width: "100%",
@@ -143,7 +138,6 @@ export default function TrainingModule({ highContrast, onNext }) {
         }}
         aria-label="Quiz content"
       >
-        {/* Multiple-choice panel */}
         <div
           style={{
             ...cardBase,
@@ -168,7 +162,7 @@ export default function TrainingModule({ highContrast, onNext }) {
               color: subtleText,
             }}
           >
-            Is this message a phishing attempt or legitimate?
+            Is this SMS a phishing attempt or legitimate?
           </p>
           <div
             role="radiogroup"
@@ -197,7 +191,6 @@ export default function TrainingModule({ highContrast, onNext }) {
           </div>
         </div>
 
-        {/* Scenario panel */}
         <div
           style={{
             ...cardBase,
@@ -212,7 +205,7 @@ export default function TrainingModule({ highContrast, onNext }) {
               fontWeight: "600",
             }}
           >
-            Email / Message
+            SMS Message
           </h2>
           <div
             style={{
@@ -225,61 +218,23 @@ export default function TrainingModule({ highContrast, onNext }) {
               border: `1px solid ${borderColor}`,
             }}
           >
-            {/* Placeholder text – replace with real scenario */}
             <p style={{ marginTop: 0 }}>
-              From: “IT Support” &lt;security-update@company-support.com&gt;
+              From: +44 7700 900123
             </p>
             <p>
-              Subject: <strong>Urgent: Your account will be disabled</strong>
-            </p>
-            <p>
-              Your password has expired. Click the link below within 24 hours
-              to keep your account active:
+              <strong>
+                Your bank account is locked. Verify now:
+              </strong>
             </p>
             <p>
               <a href="#fake-link" style={{ color: accentColor }}>
-                http://company-support-security.com/reset
+                http://secure-bank-login-help.com
               </a>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Action buttons */}
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "960px",
-          marginBottom: "16px",
-          display: "flex",
-          justifyContent: "flex-start",
-          gap: "12px",
-        }}
-      >
-        <button
-          style={{
-            ...buttonBase,
-            background: accentColor,
-            color: highContrast ? "#000" : "#fff",
-          }}
-          type="button"
-          onClick={onNext}
-        >
-          Submit answer
-        </button>
-        <button
-          style={{
-            ...buttonBase,
-            background: cardColor,
-            color: textColor,
-          }}
-           type="button"
-        >
-          Skip question
-        </button>
-      </div>
-
-      {/* Feedback section */}
       <section
         style={{
           ...cardBase,
@@ -287,10 +242,10 @@ export default function TrainingModule({ highContrast, onNext }) {
           maxWidth: "960px",
           minHeight: "96px",
         }}
-        aria-labelledby="feedback-heading"
+        aria-labelledby="feedback-heading-2"
       >
         <h2
-          id="feedback-heading"
+          id="feedback-heading-2"
           style={{
             marginTop: 0,
             marginBottom: "8px",
@@ -307,9 +262,9 @@ export default function TrainingModule({ highContrast, onNext }) {
             color: subtleText,
           }}
         >
-          Your feedback will appear here after you submit an answer. It will
-          highlight key warning signs and explain what you should look for
-          next time.
+          This SMS uses a generic number and a suspicious link that does not
+          match the official bank domain. Banks usually ask you to log in
+          through their official app or website instead of unknown links.
         </p>
       </section>
     </div>

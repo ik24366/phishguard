@@ -13,7 +13,7 @@ export default function Dashboard({ highContrast, onStartTraining }) {
       style={{
         background: backgroundColor,
         color: textColor,
-        minHeight: "100vh",
+        minHeight: "80vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

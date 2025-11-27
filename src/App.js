@@ -16,8 +16,8 @@ export default function App() {
       display: "flex",
       flexDirection: "column",
       height: "100vh",
-      background: highContrast ? "#000" : "#fff",
-      color: highContrast ? "#fff" : "#000",
+      background: highContrast ? "#000" : "#f5f7fb",
+      color: highContrast ? "#fff" : "#111",
       minHeight: "100vh"
     }}>
       <header style={{ padding: "20px" }}>

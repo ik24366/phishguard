@@ -1,0 +1,26 @@
+Project overview
+PhishGuard is a prototype phishing awareness training interface built in React.”
+
+Technologies used
+React (react, react-dom) 
+React Scripts – build and development tooling (create‑react‑app)
+react-aria/button – accessible button component for better keyboard and screen‑reader support
+Testing libraries (Jest + React Testing Library: @testing-library/react, @testing-library/jest-dom, @testing-library/user-event, @testing-library/dom)
+web-vitals – optional performance metrics collection
+Node.js
+
+Setup and run instructions
+Prerequisites
+Node.js and npm installed (any recent LTS version).
+Install dependencies
+Open a terminal in the project folder (where package.json is).
+Run:
+npm install
+Start the development server
+In the same folder, run:
+npm start
+This starts the React dev server on http://localhost:3000
+View the app
+Open a browser and go to:
+http://localhost:3000
+The PhishGuard prototype UI (login/dashboard/training screens) will load.

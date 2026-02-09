@@ -4,7 +4,7 @@ import "./App.css";
 import LoginForm from "./LoginForm";
 import Dashboard from "./Dashboard";
 import TrainingModule from "./TrainingModule";
-import TrainingModule2 from "./TrainingModule2";
+//import TrainingModule2 from "./TrainingModule2";
 
 export default function App() {
   const [highContrast, setHighContrast] = useState(false);
@@ -63,13 +63,13 @@ export default function App() {
         {page === "training" && (
           <TrainingModule
             highContrast={highContrast}
-            onNext={() => setPage("training2")}
+            onNext={() => setPage("dashboard")}
           />
         )}
 
-        {page === "training2" && (
+        {/*{page === "training2" && (
           <TrainingModule2 highContrast={highContrast} />
-        )}
+        )}*/}
       </main>
 
       {/* Accessibility toggle */}

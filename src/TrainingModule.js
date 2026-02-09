@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function TrainingModule({ highContrast, onNext }) {
+  // --- STATE MANAGEMENT ---
+  const [moduleData, setModuleData] = useState(null); // Stores the whole module (title, description)
+  const [questions, setQuestions] = useState([]);     // Stores the list of questions
+  const [currentQIndex, setCurrentQIndex] = useState(0); // Which question are we on?
+  const [loading, setLoading] = useState(true);       // Loading state
+  const [selectedChoice, setSelectedChoice] = useState(null); // What did the user click?
+  const [feedback, setFeedback] = useState(null);     // Feedback text to show
+
+  // --- FETCH DATA FROM DJANGO ---
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/quizzes/")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length > 0) {
+          // We grab the first module found in the DB (e.g. "Email Basics")
+          setModuleData(data[0]);
+          setQuestions(data[0].questions);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching quizzes:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  // --- STYLING (Your original code) ---
   const backgroundColor = highContrast ? "#222" : "#f5f7fb";
   const cardColor = highContrast ? "#333" : "#fff";
   const textColor = highContrast ? "#fff" : "#111";
   const borderColor = highContrast ? "#fff" : "#d0d4e4";
   const accentColor = highContrast ? "#ff0" : "#0073e6";
-
   const subtleText = highContrast ? "#ccc" : "#4b5563";
 
   const cardBase = {
@@ -14,9 +40,7 @@ export default function TrainingModule({ highContrast, onNext }) {
     border: `1.5px solid ${borderColor}`,
     borderRadius: "12px",
     padding: "24px 28px",
-    boxShadow: highContrast
-      ? "none"
-      : "0 8px 16px rgba(15, 23, 42, 0.06)",
+    boxShadow: highContrast ? "none" : "0 8px 16px rgba(15, 23, 42, 0.06)",
   };
 
   const buttonBase = {
@@ -28,50 +52,59 @@ export default function TrainingModule({ highContrast, onNext }) {
     fontSize: "1rem",
   };
 
+  // --- LOADING STATE ---
+  if (loading) return <div style={{ padding: "40px" }}>Loading training data...</div>;
+  if (!moduleData || questions.length === 0) return <div style={{ padding: "40px" }}>No quizzes found. Please add questions in Django Admin.</div>;
+
+  const currentQuestion = questions[currentQIndex];
+
+  // --- HANDLERS ---
+  const handleChoiceClick = (choice) => {
+    setSelectedChoice(choice);
+    // Don't show feedback yet, wait for Submit
+  };
+
+  const handleSubmit = () => {
+    if (selectedChoice) {
+      setFeedback(selectedChoice.feedback_text);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    // Reset for next question
+    setSelectedChoice(null);
+    setFeedback(null);
+
+    if (currentQIndex < questions.length - 1) {
+      setCurrentQIndex(currentQIndex + 1);
+    } else {
+      onNext(); // Call parent function when module is done
+    }
+  };
+
   return (
     <div
       style={{
         background: backgroundColor,
         color: textColor,
         minHeight: "80vh",
-        padding: "32px 16px px",
+        padding: "32px 16px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
     >
-      {/* Page header */}
-      <header
-        style={{
-          width: "100%",
-          maxWidth: "960px",
-          marginBottom: "24px",
-        }}
-      >
-        <h1
-          style={{
-            margin: 0,
-            fontSize: "2rem",
-            fontWeight: "700",
-            textAlign: "left",
-          }}
-        >
-          Training Module
+      {/* Header with Dynamic Data */}
+      <header style={{ width: "100%", maxWidth: "960px", marginBottom: "24px" }}>
+        <h1 style={{ margin: 0, fontSize: "2rem", fontWeight: "700", textAlign: "left" }}>
+          {moduleData.title}
         </h1>
-        <p
-          style={{
-            marginTop: "8px",
-            marginBottom: 0,
-            fontSize: "0.98rem",
-            color: subtleText,
-          }}
-        >
-          Practice identifying phishing attempts using realistic scenarios
-          and immediate feedback.
+        <p style={{ marginTop: "8px", marginBottom: 0, fontSize: "0.98rem", color: subtleText }}>
+          {moduleData.description}
         </p>
       </header>
 
-      {/* Top bar (could hold breadcrumbs / progress) */}
+      {/* Progress Bar */}
       <nav
         style={{
           ...cardBase,
@@ -82,138 +115,62 @@ export default function TrainingModule({ highContrast, onNext }) {
           justifyContent: "space-between",
           alignItems: "center",
         }}
-        aria-label="Training module navigation"
       >
-        <div style={{ fontWeight: 600 }}>Module: Email Phishing Basics</div>
-        <div
-          style={{
-            fontSize: "0.9rem",
-            color: subtleText,
-          }}
-        >
-          Progress: <strong>3 / 10 questions</strong>
+        <div style={{ fontWeight: 600 }}>Module: {moduleData.title}</div>
+        <div style={{ fontSize: "0.9rem", color: subtleText }}>
+          Progress: <strong>{currentQIndex + 1} / {questions.length} questions</strong>
         </div>
       </nav>
 
-      {/* Instructions */}
-      <section
-        style={{
-          ...cardBase,
-          width: "100%",
-          maxWidth: "960px",
-          marginBottom: "20px",
-          textAlign: "left",
-        }}
-        aria-labelledby="instructions-heading"
-      >
-        <h2
-          id="instructions-heading"
-          style={{
-            marginTop: 0,
-            marginBottom: "8px",
-            fontSize: "1.15rem",
-            fontWeight: "600",
-          }}
-        >
+      <section style={{ ...cardBase, width: "100%", maxWidth: "960px", marginBottom: "20px", textAlign: "left" }}>
+        <h2 style={{ marginTop: 0, marginBottom: "8px", fontSize: "1.15rem", fontWeight: "600" }}>
           Instructions
         </h2>
-        <ul
-          style={{
-            margin: 0,
-            paddingLeft: "20px",
-            fontSize: "0.98rem",
-            lineHeight: 1.6,
-          }}
-        >
-          <li>Review the email or message shown on the right.</li>
-          <li>Select the option that best describes whether it is phishing.</li>
-          <li>Use the feedback area below to understand what you missed.</li>
+        <ul style={{ margin: 0, paddingLeft: "20px", fontSize: "0.98rem", lineHeight: 1.6 }}>
+          <li>Review the scenario shown on the right.</li>
+          <li>Select the best answer.</li>
+          <li>Submit to see feedback.</li>
         </ul>
       </section>
 
-      {/* Main interaction area */}
-      <section
-        style={{
-          width: "100%",
-          maxWidth: "960px",
-          marginBottom: "20px",
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "20px",
-        }}
-        aria-label="Quiz content"
-      >
-        {/* Multiple-choice panel */}
-        <div
-          style={{
-            ...cardBase,
-            flex: "1 1 320px",
-          }}
-        >
-          <h2
-            style={{
-              marginTop: 0,
-              marginBottom: "12px",
-              fontSize: "1.1rem",
-              fontWeight: "600",
-            }}
-          >
+      {/* Main Quiz Area */}
+      <section style={{ width: "100%", maxWidth: "960px", marginBottom: "20px", display: "flex", flexWrap: "wrap", gap: "20px" }}>
+
+        {/* LEFT: Question & Choices */}
+        <div style={{ ...cardBase, flex: "1 1 320px" }}>
+          <h2 style={{ marginTop: 0, marginBottom: "12px", fontSize: "1.1rem", fontWeight: "600" }}>
             Question
           </h2>
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: "16px",
-              fontSize: "0.98rem",
-              color: subtleText,
-            }}
-          >
-            Is this message a phishing attempt or legitimate?
+          <p style={{ marginTop: 0, marginBottom: "16px", fontSize: "0.98rem", color: subtleText }}>
+            {currentQuestion.prompt_text}
           </p>
-          <div
-            role="radiogroup"
-            aria-label="Answer options"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-            }}
-          >
-            {["Definitely phishing", "Probably phishing", "Legitimate"].map(
-              (label) => (
-                <button
-                  key={label}
-                  style={{
-                    ...buttonBase,
-                    textAlign: "left",
-                    width: "100%",
-                    background: cardColor,
-                  }}
-                >
-                  {label}
-                </button>
-              )
-            )}
+
+          <div role="radiogroup" style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {currentQuestion.choices.map((choice) => (
+              <button
+                key={choice.id}
+                onClick={() => handleChoiceClick(choice)}
+                style={{
+                  ...buttonBase,
+                  textAlign: "left",
+                  width: "100%",
+                  background: selectedChoice?.id === choice.id ? accentColor : cardColor,
+                  color: selectedChoice?.id === choice.id && !highContrast ? "#fff" : textColor,
+                  border: selectedChoice?.id === choice.id ? `2px solid ${textColor}` : `1px solid ${borderColor}`,
+                }}
+              >
+                {choice.text}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Scenario panel */}
-        <div
-          style={{
-            ...cardBase,
-            flex: "1 1 320px",
-          }}
-        >
-          <h2
-            style={{
-              marginTop: 0,
-              marginBottom: "12px",
-              fontSize: "1.1rem",
-              fontWeight: "600",
-            }}
-          >
-            Email / Message
+        {/* RIGHT: Scenario Display (Email vs SMS logic) */}
+        <div style={{ ...cardBase, flex: "1 1 320px" }}>
+          <h2 style={{ marginTop: 0, marginBottom: "12px", fontSize: "1.1rem", fontWeight: "600" }}>
+            {currentQuestion.type === 'SMS' ? 'SMS Message' : 'Email'}
           </h2>
+
           <div
             style={{
               fontSize: "0.95rem",
@@ -225,91 +182,65 @@ export default function TrainingModule({ highContrast, onNext }) {
               border: `1px solid ${borderColor}`,
             }}
           >
-            {/* Placeholder text – replace with real scenario */}
+            {/* Conditional Rendering based on Type */}
             <p style={{ marginTop: 0 }}>
-              From: “IT Support” &lt;security-update@company-support.com&gt;
+              <strong>From:</strong> {currentQuestion.sender}
             </p>
-            <p>
-              Subject: <strong>Urgent: Your account will be disabled</strong>
-            </p>
-            <p>
-              Your password has expired. Click the link below within 24 hours
-              to keep your account active:
-            </p>
-            <p>
-              <a href="#fake-link" style={{ color: accentColor }}>
-                http://company-support-security.com/reset
-              </a>
-            </p>
+
+            {/* Only show Subject if it's an Email */}
+            {currentQuestion.type === 'EMAIL' && (
+              <p><strong>Subject:</strong> {currentQuestion.subject}</p>
+            )}
+
+            <p style={{ whiteSpace: 'pre-wrap' }}>{currentQuestion.body}</p>
+
+            {currentQuestion.link_url && (
+              <p>
+                <a href="#" style={{ color: accentColor, wordBreak: 'break-all' }}>
+                  {currentQuestion.link_url}
+                </a>
+              </p>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Action buttons */}
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "960px",
-          marginBottom: "16px",
-          display: "flex",
-          justifyContent: "flex-start",
-          gap: "12px",
-        }}
-      >
-        <button
-          style={{
-            ...buttonBase,
-            background: accentColor,
-            color: highContrast ? "#000" : "#fff",
-          }}
-          type="button"
-          onClick={onNext}
-        >
-          Submit answer
-        </button>
-        <button
-          style={{
-            ...buttonBase,
-            background: cardColor,
-            color: textColor,
-          }}
-           type="button"
-        >
-          Skip question
-        </button>
+      {/* Buttons */}
+      <div style={{ width: "100%", maxWidth: "960px", marginBottom: "16px", display: "flex", justifyContent: "flex-start", gap: "12px" }}>
+
+        {!feedback ? (
+          <button
+            style={{ ...buttonBase, background: accentColor, color: highContrast ? "#000" : "#fff" }}
+            type="button"
+            onClick={handleSubmit}
+            disabled={!selectedChoice} // Disable if nothing selected
+          >
+            Submit answer
+          </button>
+        ) : (
+          <button
+            style={{ ...buttonBase, background: accentColor, color: highContrast ? "#000" : "#fff" }}
+            type="button"
+            onClick={handleNextQuestion}
+          >
+            {currentQIndex < questions.length - 1 ? "Next Question" : "Finish Module"}
+          </button>
+        )}
+
+        {!feedback && (
+          <button style={{ ...buttonBase, background: cardColor, color: textColor }} type="button" onClick={handleNextQuestion}>
+            Skip question
+          </button>
+        )}
       </div>
 
-      {/* Feedback section */}
-      <section
-        style={{
-          ...cardBase,
-          width: "100%",
-          maxWidth: "960px",
-          minHeight: "96px",
-        }}
-        aria-labelledby="feedback-heading"
-      >
-        <h2
-          id="feedback-heading"
-          style={{
-            marginTop: 0,
-            marginBottom: "8px",
-            fontSize: "1.05rem",
-            fontWeight: "600",
-          }}
-        >
+      {/* Feedback Section */}
+      <section style={{ ...cardBase, width: "100%", maxWidth: "960px", minHeight: "96px" }}>
+        <h2 style={{ marginTop: 0, marginBottom: "8px", fontSize: "1.05rem", fontWeight: "600" }}>
           Feedback
         </h2>
-        <p
-          style={{
-            margin: 0,
-            fontSize: "0.96rem",
-            color: subtleText,
-          }}
-        >
-          Your feedback will appear here after you submit an answer. It will
-          highlight key warning signs and explain what you should look for
-          next time.
+        <p style={{ margin: 0, fontSize: "0.96rem", color: subtleText }}>
+          {feedback ? feedback : "Your feedback will appear here after you submit an answer."}
         </p>
       </section>
     </div>

@@ -4,11 +4,13 @@ import "./App.css";
 import LoginForm from "./LoginForm";
 import Dashboard from "./Dashboard";
 import TrainingModule from "./TrainingModule";
-//import TrainingModule2 from "./TrainingModule2";
 
 export default function App() {
   const [highContrast, setHighContrast] = useState(false);
   const [page, setPage] = useState("login");
+
+  // NEW: State to track which module was clicked on the dashboard
+  const [activeModuleId, setActiveModuleId] = useState(null);
 
   // Keep body background in sync with contrast mode
   useEffect(() => {
@@ -56,20 +58,26 @@ export default function App() {
         {page === "dashboard" && (
           <Dashboard
             highContrast={highContrast}
-            onStartTraining={() => setPage("training")}
+            // UPDATE: Catch the ID passed from Dashboard and save it
+            onStartTraining={(moduleId) => {
+              setActiveModuleId(moduleId);
+              setPage("training");
+            }}
           />
         )}
 
         {page === "training" && (
           <TrainingModule
             highContrast={highContrast}
-            onNext={() => setPage("dashboard")}
+            // UPDATE: Pass the saved ID into the training module
+            moduleId={activeModuleId}
+            onNext={() => {
+              setActiveModuleId(null); // Clear the ID when finished
+              setPage("dashboard");
+            }}
           />
         )}
 
-        {/*{page === "training2" && (
-          <TrainingModule2 highContrast={highContrast} />
-        )}*/}
       </main>
 
       {/* Accessibility toggle */}

@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Dashboard({ highContrast, onStartTraining }) {
+  // --- NEW: State for our Modules ---
+  const [modules, setModules] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // --- NEW: Fetch Modules from Django ---
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/modules/")
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data) => {
+        setModules(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to load modules:", err);
+        setLoading(false); // Stop loading even if it fails so UI isn't blocked
+      });
+  }, []);
+
   const backgroundColor = highContrast ? "#222" : "#f5f7fb";
   const cardColor = highContrast ? "#333" : "#fff";
   const textColor = highContrast ? "#fff" : "#111";
@@ -103,7 +124,7 @@ export default function Dashboard({ highContrast, onStartTraining }) {
           maxWidth: "1100px",
         }}
       >
-        {/* Left column */}
+        {/* Left column: Welcome & Module List */}
         <div
           style={{
             flex: "1 1 320px",
@@ -145,57 +166,75 @@ export default function Dashboard({ highContrast, onStartTraining }) {
             </p>
           </section>
 
-          {/* Training call-to-action */}
+          {/* DYNAMIC TRAINING MODULES LIST */}
           <section
             style={{
               ...cardBase,
               minHeight: "180px",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
             }}
             aria-labelledby="training-heading"
           >
-            <div>
-              <h2
-                id="training-heading"
-                style={{
-                  marginTop: 0,
-                  marginBottom: "8px",
-                  fontSize: "1.1rem",
-                  fontWeight: 600,
-                }}
-              >
-                Training modules
-              </h2>
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "0.96rem",
-                  color: subtleText,
-                }}
-              >
-                Start a new module or continue where you left off. Each session
-                takes about 5–10 minutes.
-              </p>
-            </div>
-            <button
+            <h2
+              id="training-heading"
               style={{
-                ...pillButton,
-                marginTop: "18px",
-                background: accentColor,
-                color: highContrast ? "#000" : "#fff",
-                alignSelf: "flex-start",
+                marginTop: 0,
+                marginBottom: "8px",
+                fontSize: "1.1rem",
+                fontWeight: 600,
               }}
-              onClick={onStartTraining}
-              aria-label="Start phishing training"
             >
-              Start training
-            </button>
+              Available Training Modules
+            </h2>
+
+            {loading ? (
+              <p style={{ color: subtleText }}>Loading modules...</p>
+            ) : modules.length === 0 ? (
+              <p style={{ color: subtleText }}>No modules found. Please add them in Django Admin.</p>
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "12px" }}>
+                {modules.map((mod) => (
+                  <div
+                    key={mod.id}
+                    style={{
+                      padding: "16px",
+                      border: `1px solid ${borderColor}`,
+                      borderRadius: "8px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      background: highContrast ? "#222" : "#f9fafb"
+                    }}
+                  >
+                    <div>
+                      <h3 style={{ margin: "0 0 4px 0", fontSize: "1.05rem" }}>{mod.title}</h3>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: subtleText }}>
+                        {mod.description || "Learn to identify threats in this scenario."}
+                      </p>
+                    </div>
+                    <button
+                      style={{
+                        ...pillButton,
+                        background: accentColor,
+                        color: highContrast ? "#000" : "#fff",
+                        padding: "8px 20px", // slightly smaller button for the list
+                        whiteSpace: "nowrap",
+                        marginLeft: "16px"
+                      }}
+                      onClick={() => onStartTraining(mod.id)} // Pass the specific ID!
+                      aria-label={`Start ${mod.title} training`}
+                    >
+                      Start
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
         </div>
 
-        {/* Right column: Progress */}
+        {/* Right column: Progress (Still Hardcoded for now) */}
         <section
           style={{
             ...cardBase,

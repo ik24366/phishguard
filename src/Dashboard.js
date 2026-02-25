@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-export default function Dashboard({ highContrast, onStartTraining }) {
-  // --- NEW: State for our Modules ---
+// NEW: Add completedModules to props
+export default function Dashboard({ highContrast, onStartTraining, completedModules = [] }) {
   const [modules, setModules] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // --- NEW: Fetch Modules from Django ---
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/modules/")
       .then((res) => {
@@ -18,7 +17,7 @@ export default function Dashboard({ highContrast, onStartTraining }) {
       })
       .catch((err) => {
         console.error("Failed to load modules:", err);
-        setLoading(false); // Stop loading even if it fails so UI isn't blocked
+        setLoading(false);
       });
   }, []);
 
@@ -47,6 +46,16 @@ export default function Dashboard({ highContrast, onStartTraining }) {
     cursor: "pointer",
     fontSize: "0.98rem",
   };
+
+  // --- NEW: Calculate Progress ---
+  const totalModules = modules.length;
+  // Ensure we don't count completed modules that might have been deleted from the database
+  const validCompletedCount = completedModules.filter(id =>
+    modules.some(mod => mod.id === id)
+  ).length;
+
+  // Calculate percentage (avoid dividing by zero)
+  const progressPercentage = totalModules === 0 ? 0 : Math.round((validCompletedCount / totalModules) * 100);
 
   return (
     <div
@@ -124,7 +133,7 @@ export default function Dashboard({ highContrast, onStartTraining }) {
           maxWidth: "1100px",
         }}
       >
-        {/* Left column: Welcome & Module List */}
+        {/* Left column */}
         <div
           style={{
             flex: "1 1 320px",
@@ -194,47 +203,59 @@ export default function Dashboard({ highContrast, onStartTraining }) {
               <p style={{ color: subtleText }}>No modules found. Please add them in Django Admin.</p>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "12px" }}>
-                {modules.map((mod) => (
-                  <div
-                    key={mod.id}
-                    style={{
-                      padding: "16px",
-                      border: `1px solid ${borderColor}`,
-                      borderRadius: "8px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      background: highContrast ? "#222" : "#f9fafb"
-                    }}
-                  >
-                    <div>
-                      <h3 style={{ margin: "0 0 4px 0", fontSize: "1.05rem" }}>{mod.title}</h3>
-                      <p style={{ margin: 0, fontSize: "0.9rem", color: subtleText }}>
-                        {mod.description || "Learn to identify threats in this scenario."}
-                      </p>
-                    </div>
-                    <button
+                {modules.map((mod) => {
+                  // NEW: Check if this module is completed
+                  const isCompleted = completedModules.includes(mod.id);
+
+                  return (
+                    <div
+                      key={mod.id}
                       style={{
-                        ...pillButton,
-                        background: accentColor,
-                        color: highContrast ? "#000" : "#fff",
-                        padding: "8px 20px", // slightly smaller button for the list
-                        whiteSpace: "nowrap",
-                        marginLeft: "16px"
+                        padding: "16px",
+                        border: `1px solid ${borderColor}`,
+                        borderRadius: "8px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        background: highContrast ? "#222" : "#f9fafb"
                       }}
-                      onClick={() => onStartTraining(mod.id)} // Pass the specific ID!
-                      aria-label={`Start ${mod.title} training`}
                     >
-                      Start
-                    </button>
-                  </div>
-                ))}
+                      <div>
+                        <h3 style={{ margin: "0 0 4px 0", fontSize: "1.05rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                          {mod.title}
+                          {/* NEW: Show a green checkmark if completed */}
+                          {isCompleted && (
+                            <span style={{ color: "green", fontSize: "1.2rem" }} title="Completed">✓</span>
+                          )}
+                        </h3>
+                        <p style={{ margin: 0, fontSize: "0.9rem", color: subtleText }}>
+                          {mod.description || "Learn to identify threats in this scenario."}
+                        </p>
+                      </div>
+                      <button
+                        style={{
+                          ...pillButton,
+                          background: isCompleted ? (highContrast ? "#444" : "#e5e7eb") : accentColor, // Gray out if completed
+                          color: isCompleted ? (highContrast ? "#fff" : "#4b5563") : (highContrast ? "#000" : "#fff"),
+                          border: isCompleted ? "none" : `1px solid ${borderColor}`,
+                          padding: "8px 20px",
+                          whiteSpace: "nowrap",
+                          marginLeft: "16px"
+                        }}
+                        onClick={() => onStartTraining(mod.id)}
+                        aria-label={`${isCompleted ? "Retake" : "Start"} ${mod.title} training`}
+                      >
+                        {isCompleted ? "Retake" : "Start"}
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             )}
           </section>
         </div>
 
-        {/* Right column: Progress (Still Hardcoded for now) */}
+        {/* Right column: DYNAMIC Progress */}
         <section
           style={{
             ...cardBase,
@@ -274,19 +295,19 @@ export default function Dashboard({ highContrast, onStartTraining }) {
               marginBottom: "6px",
             }}
           >
-            Training completion
+            Training completion ({progressPercentage}%)
           </label>
           <progress
             id="progress-bar"
-            value={70}
+            value={progressPercentage}
             max={100}
             style={{
               width: "100%",
               height: "40px",
             }}
-            aria-valuenow={70}
+            aria-valuenow={progressPercentage}
             aria-valuemax={100}
-            aria-label="Training completion 70 percent"
+            aria-label={`Training completion ${progressPercentage} percent`}
           />
 
           <div
@@ -296,7 +317,7 @@ export default function Dashboard({ highContrast, onStartTraining }) {
               color: subtleText,
             }}
           >
-            <strong>7 / 10</strong> core quizzes completed
+            <strong>{validCompletedCount} / {totalModules}</strong> core quizzes completed
           </div>
         </section>
       </main>

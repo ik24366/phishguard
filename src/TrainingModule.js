@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function TrainingModule({ highContrast, onNext }) {
+export default function TrainingModule({ highContrast, onNext, moduleId, onComplete }) {
   // --- STATE MANAGEMENT ---
   const [moduleData, setModuleData] = useState(null); // Stores the whole module (title, description)
   const [questions, setQuestions] = useState([]);     // Stores the list of questions
@@ -11,21 +11,29 @@ export default function TrainingModule({ highContrast, onNext }) {
 
   // --- FETCH DATA FROM DJANGO ---
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/quizzes/")
-      .then((res) => res.json())
+    // 1. Safety check: Don't fetch if no ID was passed
+    if (!moduleId) return;
+
+    setLoading(true); // Always set loading to true when starting a new fetch
+
+    // 2. Fetch the SPECIFIC module using the moduleId passed from the Dashboard
+    fetch(`http://127.0.0.1:8000/api/quizzes/${moduleId}/`) // <-- THIS IS THE CRITICAL CHANGE
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch module");
+        return res.json();
+      })
       .then((data) => {
-        if (data.length > 0) {
-          // We grab the first module found in the DB (e.g. "Email Basics")
-          setModuleData(data[0]);
-          setQuestions(data[0].questions);
-        }
+        // Because we fetch by ID, 'data' is ONE module object (not an array)
+        setModuleData(data);
+        setQuestions(data.questions); // Get the specific questions for this module
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching quizzes:", err);
+        console.error("Error fetching module:", err);
         setLoading(false);
       });
-  }, []);
+  }, [moduleId]); // <-- Re-run the fetch if the moduleId changes
+
 
   // --- STYLING (Your original code) ---
   const backgroundColor = highContrast ? "#222" : "#f5f7fb";
@@ -78,9 +86,19 @@ export default function TrainingModule({ highContrast, onNext }) {
     if (currentQIndex < questions.length - 1) {
       setCurrentQIndex(currentQIndex + 1);
     } else {
-      onNext(); // Call parent function when module is done
+      // WE ARE AT THE END OF THE MODULE
+      console.log("Saving progress for module:", moduleId);
+
+      // 1. Tell App.js to save the progress
+      if (onComplete) {
+        onComplete();
+      }
+
+      // 2. Return to the dashboard
+      onNext();
     }
   };
+
 
   return (
     <div

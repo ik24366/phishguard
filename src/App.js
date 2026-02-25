@@ -8,15 +8,30 @@ import TrainingModule from "./TrainingModule";
 export default function App() {
   const [highContrast, setHighContrast] = useState(false);
   const [page, setPage] = useState("login");
-
-  // NEW: State to track which module was clicked on the dashboard
   const [activeModuleId, setActiveModuleId] = useState(null);
+
+  // --- NEW: Load completed modules from localStorage on startup ---
+  const [completedModules, setCompletedModules] = useState(() => {
+    const saved = localStorage.getItem("phishguard_completed");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   // Keep body background in sync with contrast mode
   useEffect(() => {
     document.body.style.backgroundColor = highContrast ? "#000" : "#f5f7fb";
     document.body.style.color = highContrast ? "#fff" : "#111";
   }, [highContrast]);
+
+  // --- NEW: Function to mark a module as complete ---
+  const markModuleComplete = (moduleId) => {
+    setCompletedModules((prev) => {
+      if (prev.includes(moduleId)) return prev; // Already completed
+      const newCompleted = [...prev, moduleId];
+      // Save back to localStorage
+      localStorage.setItem("phishguard_completed", JSON.stringify(newCompleted));
+      return newCompleted;
+    });
+  };
 
   return (
     <div
@@ -58,7 +73,7 @@ export default function App() {
         {page === "dashboard" && (
           <Dashboard
             highContrast={highContrast}
-            // UPDATE: Catch the ID passed from Dashboard and save it
+            completedModules={completedModules} // <-- Pass down completed modules
             onStartTraining={(moduleId) => {
               setActiveModuleId(moduleId);
               setPage("training");
@@ -69,10 +84,10 @@ export default function App() {
         {page === "training" && (
           <TrainingModule
             highContrast={highContrast}
-            // UPDATE: Pass the saved ID into the training module
             moduleId={activeModuleId}
+            onComplete={() => markModuleComplete(activeModuleId)} // <-- Pass the complete function
             onNext={() => {
-              setActiveModuleId(null); // Clear the ID when finished
+              setActiveModuleId(null);
               setPage("dashboard");
             }}
           />

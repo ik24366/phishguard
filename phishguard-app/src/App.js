@@ -1,66 +1,117 @@
-// src/App.jsx
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import LoginForm from "./LoginForm";
 import Dashboard from "./Dashboard";
-import TrainingModule from "./TrainingModule";
+import TrainingModule from "./TrainingModule"; // Ensure this matches your component's name
+import "./App.css";
 
 export default function App() {
-  const [highContrast, setHighContrast] = useState(false);
   const [page, setPage] = useState("login");
+  const [highContrast, setHighContrast] = useState(false);
   const [activeModuleId, setActiveModuleId] = useState(null);
 
-  // --- NEW: Load completed modules from localStorage on startup ---
-  const [completedModules, setCompletedModules] = useState(() => {
-    const saved = localStorage.getItem("phishguard_completed");
-    return saved ? JSON.parse(saved) : [];
-  });
+  // NEW: State to hold the AI generated quiz data
+  const [aiQuizData, setAiQuizData] = useState(null);
 
-  // Keep body background in sync with contrast mode
+  const [completedModules, setCompletedModules] = useState([]);
+
+  // Load accessibility and completion states from localStorage on mount
   useEffect(() => {
-    document.body.style.backgroundColor = highContrast ? "#000" : "#f5f7fb";
-    document.body.style.color = highContrast ? "#fff" : "#111";
-  }, [highContrast]);
+    const savedContrast = localStorage.getItem("phishguard_highContrast") === "true";
+    if (savedContrast) {
+      setHighContrast(true);
+      document.body.classList.add("high-contrast-body");
+    }
 
-  // --- NEW: Function to mark a module as complete ---
-  const markModuleComplete = (moduleId) => {
+    const savedCompleted = localStorage.getItem("phishguard_completed");
+    if (savedCompleted) {
+      try {
+        setCompletedModules(JSON.parse(savedCompleted));
+      } catch (e) {
+        console.error("Error parsing completed modules", e);
+      }
+    }
+  }, []);
+
+  const toggleHighContrast = () => {
+    setHighContrast((prev) => {
+      const newVal = !prev;
+      localStorage.setItem("phishguard_highContrast", newVal);
+      if (newVal) {
+        document.body.classList.add("high-contrast-body");
+      } else {
+        document.body.classList.remove("high-contrast-body");
+      }
+      return newVal;
+    });
+  };
+
+  const markModuleComplete = (modId) => {
+    // If it's the AI module, don't add it to the normal completion progress
+    if (modId === "AI") return;
+
     setCompletedModules((prev) => {
-      if (prev.includes(moduleId)) return prev; // Already completed
-      const newCompleted = [...prev, moduleId];
-      // Save back to localStorage
-      localStorage.setItem("phishguard_completed", JSON.stringify(newCompleted));
-      return newCompleted;
+      if (prev.includes(modId)) return prev;
+      const newVal = [...prev, modId];
+      localStorage.setItem("phishguard_completed", JSON.stringify(newVal));
+      return newVal;
     });
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        background: highContrast ? "#000" : "#f5f7fb",
-        color: highContrast ? "#fff" : "#111",
-      }}
-    >
-      {/* Top brand bar */}
+    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      {/* Accessibility Skip Link */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
+      {/* Global Header */}
       <header
         style={{
+          width: "100%",
           padding: "16px 24px",
-          fontWeight: 700,
-          fontSize: "1.4rem",
+          background: highContrast ? "#000" : "#fff",
+          borderBottom: `1px solid ${highContrast ? "#fff" : "#e2e8f0"}`,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          boxShadow: highContrast ? "none" : "0 2px 4px rgba(0,0,0,0.05)",
+          zIndex: 10,
         }}
       >
-        PhishGuard
+        <div style={{ fontSize: "1.4rem", fontWeight: 700, color: highContrast ? "#fff" : "#111" }}>
+          PhishGuard
+        </div>
+        {page !== "login" && (
+          <button
+            onClick={() => {
+              setPage("login");
+              setActiveModuleId(null);
+              setAiQuizData(null); // Clear AI data on logout
+            }}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: highContrast ? "#fff" : "#0f172a",
+              fontWeight: 600,
+              cursor: "pointer",
+              fontSize: "0.95rem",
+              textDecoration: "underline",
+            }}
+            aria-label="Log out of PhishGuard"
+          >
+            Log Out
+          </button>
+        )}
       </header>
 
-      {/* Main content */}
+      {/* Main Content Area */}
       <main
+        id="main-content"
         style={{
-          flex: 1,
+          flex: "1 1 0%",
           display: "flex",
           justifyContent: "center",
-          alignItems: page === "login" ? "center" : "flex-start",
+          alignItems: "flex-start",
         }}
       >
         {page === "login" && (
@@ -73,9 +124,17 @@ export default function App() {
         {page === "dashboard" && (
           <Dashboard
             highContrast={highContrast}
-            completedModules={completedModules} // <-- Pass down completed modules
-            onStartTraining={(moduleId) => {
-              setActiveModuleId(moduleId);
+            completedModules={completedModules}
+            onStartTraining={(moduleId, customData = null) => {
+              // NEW: Check if this is an AI quiz
+              if (moduleId === "AI" && customData) {
+                setAiQuizData(customData);
+                setActiveModuleId("AI");
+              } else {
+                // Normal database quiz
+                setActiveModuleId(moduleId);
+                setAiQuizData(null);
+              }
               setPage("training");
             }}
           />
@@ -85,17 +144,18 @@ export default function App() {
           <TrainingModule
             highContrast={highContrast}
             moduleId={activeModuleId}
-            onComplete={() => markModuleComplete(activeModuleId)} // <-- Pass the complete function
+            aiData={aiQuizData} // NEW: Pass the AI data to the training module
+            onComplete={() => markModuleComplete(activeModuleId)}
             onNext={() => {
-              setActiveModuleId(null);
               setPage("dashboard");
+              setActiveModuleId(null);
+              setAiQuizData(null); // Clear after completing
             }}
           />
         )}
-
       </main>
 
-      {/* Accessibility toggle */}
+      {/* Global Footer (Accessibility Toggle) */}
       <footer
         style={{
           position: "fixed",
@@ -105,24 +165,21 @@ export default function App() {
         }}
       >
         <button
+          onClick={toggleHighContrast}
           aria-pressed={highContrast}
-          aria-label={
-            highContrast
-              ? "Disable high contrast mode"
-              : "Enable high contrast mode"
-          }
-          onClick={() => setHighContrast((hc) => !hc)}
           style={{
-            padding: "8px 16px",
-            borderRadius: "999px",
-            border: "1px solid #d0d4e4",
             background: highContrast ? "#fff" : "#111",
             color: highContrast ? "#000" : "#fff",
-            fontSize: "0.9rem",
+            border: highContrast ? "2px solid #000" : "none",
+            borderRadius: "999px",
+            padding: "12px 20px",
+            fontWeight: 600,
+            fontSize: "0.95rem",
             cursor: "pointer",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
           }}
         >
-          Accessibility
+          {highContrast ? "Standard Contrast" : "Accessibility"}
         </button>
       </footer>
     </div>

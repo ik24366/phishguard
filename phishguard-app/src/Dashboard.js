@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 export default function Dashboard({ highContrast, onStartTraining, completedModules = [] }) {
   const [modules, setModules] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [aiLoading, setAiLoading] = useState(false); // NEW: Track AI loading state
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/modules/")
@@ -20,6 +21,32 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
         setLoading(false);
       });
   }, []);
+
+  // --- NEW: AI Fetch Function ---
+  const fetchAIQuiz = async () => {
+    try {
+      setAiLoading(true);
+      console.log("Fetching AI Quiz from Django...");
+      const response = await fetch('http://localhost:8000/api/generate-ai-quiz/');
+
+      if (!response.ok) throw new Error("Failed to generate AI quiz");
+
+      const aiQuizData = await response.json();
+
+      console.log("SUCCESS! Here is the AI data:", aiQuizData);
+      alert("AI Quiz generated successfully! Check your browser console to see the JSON data. Wiring it to the training module is the next step!");
+
+      // Next Step: You will pass this to your TrainingModule component
+      onStartTraining("AI", aiQuizData);
+
+    } catch (error) {
+      console.error("Failed to fetch AI Quiz:", error);
+      alert("Failed to generate AI Quiz. Check your Django terminal for errors.");
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
 
   const backgroundColor = highContrast ? "#222" : "#f5f7fb";
   const cardColor = highContrast ? "#333" : "#fff";
@@ -47,7 +74,8 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
     fontSize: "0.98rem",
   };
 
-  // --- NEW: Calculate Progress ---
+
+  // --- Calculate Progress ---
   const totalModules = modules.length;
   // Ensure we don't count completed modules that might have been deleted from the database
   const validCompletedCount = completedModules.filter(id =>
@@ -204,7 +232,7 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "12px" }}>
                 {modules.map((mod) => {
-                  // NEW: Check if this module is completed
+                  // Check if this module is completed
                   const isCompleted = completedModules.includes(mod.id);
 
                   return (
@@ -223,7 +251,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                       <div>
                         <h3 style={{ margin: "0 0 4px 0", fontSize: "1.05rem", display: "flex", alignItems: "center", gap: "8px" }}>
                           {mod.title}
-                          {/* NEW: Show a green checkmark if completed */}
                           {isCompleted && (
                             <span style={{ color: "green", fontSize: "1.2rem" }} title="Completed">✓</span>
                           )}
@@ -235,7 +262,7 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                       <button
                         style={{
                           ...pillButton,
-                          background: isCompleted ? (highContrast ? "#444" : "#e5e7eb") : accentColor, // Gray out if completed
+                          background: isCompleted ? (highContrast ? "#444" : "#e5e7eb") : accentColor,
                           color: isCompleted ? (highContrast ? "#fff" : "#4b5563") : (highContrast ? "#000" : "#fff"),
                           border: isCompleted ? "none" : `1px solid ${borderColor}`,
                           padding: "8px 20px",
@@ -255,71 +282,134 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
           </section>
         </div>
 
-        {/* Right column: DYNAMIC Progress */}
-        <section
+        {/* Right column: Progress & AI Mode */}
+        <div
           style={{
-            ...cardBase,
             flex: "1 1 320px",
-            minHeight: "180px",
             display: "flex",
             flexDirection: "column",
+            gap: "24px",
           }}
-          aria-labelledby="progress-heading"
         >
-          <h2
-            id="progress-heading"
+          <section
             style={{
-              marginTop: 0,
-              marginBottom: "8px",
-              fontSize: "1.1rem",
-              fontWeight: 600,
+              ...cardBase,
+              minHeight: "180px",
+              display: "flex",
+              flexDirection: "column",
             }}
+            aria-labelledby="progress-heading"
           >
-            Progress report
-          </h2>
-          <p
-            style={{
-              marginTop: 0,
-              marginBottom: "16px",
-              fontSize: "0.96rem",
-              color: subtleText,
-            }}
-          >
-            Overall completion of current training path.
-          </p>
+            <h2
+              id="progress-heading"
+              style={{
+                marginTop: 0,
+                marginBottom: "8px",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+              }}
+            >
+              Progress report
+            </h2>
+            <p
+              style={{
+                marginTop: 0,
+                marginBottom: "16px",
+                fontSize: "0.96rem",
+                color: subtleText,
+              }}
+            >
+              Overall completion of current training path.
+            </p>
 
-          <label
-            htmlFor="progress-bar"
-            style={{
-              fontSize: "0.95rem",
-              marginBottom: "6px",
-            }}
-          >
-            Training completion ({progressPercentage}%)
-          </label>
-          <progress
-            id="progress-bar"
-            value={progressPercentage}
-            max={100}
-            style={{
-              width: "100%",
-              height: "40px",
-            }}
-            aria-valuenow={progressPercentage}
-            aria-valuemax={100}
-            aria-label={`Training completion ${progressPercentage} percent`}
-          />
+            <label
+              htmlFor="progress-bar"
+              style={{
+                fontSize: "0.95rem",
+                marginBottom: "6px",
+              }}
+            >
+              Training completion ({progressPercentage}%)
+            </label>
+            <progress
+              id="progress-bar"
+              value={progressPercentage}
+              max={100}
+              style={{
+                width: "100%",
+                height: "40px",
+              }}
+              aria-valuenow={progressPercentage}
+              aria-valuemax={100}
+              aria-label={`Training completion ${progressPercentage} percent`}
+            />
 
-          <div
+            <div
+              style={{
+                marginTop: "10px",
+                fontSize: "0.9rem",
+                color: subtleText,
+              }}
+            >
+              <strong>{validCompletedCount} / {totalModules}</strong> core quizzes completed
+            </div>
+          </section>
+
+          {/* --- NEW: AI GENERATOR CARD --- */}
+          <section
             style={{
-              marginTop: "10px",
-              fontSize: "0.9rem",
-              color: subtleText,
+              ...cardBase,
+              border: highContrast ? `2px solid ${accentColor}` : `1.5px solid #8b5cf6`, // Purple border for AI
+              background: highContrast ? cardColor : "#f5f3ff", // Light purple background
+              display: "flex",
+              flexDirection: "column",
             }}
+            aria-labelledby="ai-heading"
           >
-            <strong>{validCompletedCount} / {totalModules}</strong> core quizzes completed
-          </div>
-        </section>
+            <h2
+              id="ai-heading"
+              style={{
+                marginTop: 0,
+                marginBottom: "8px",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                color: highContrast ? accentColor : "#6d28d9", // Dark purple text
+                display: "flex",
+                alignItems: "center",
+                gap: "8px"
+              }}
+            >
+              🤖 Adaptive AI Mode
+            </h2>
+            <p
+              style={{
+                marginTop: 0,
+                marginBottom: "16px",
+                fontSize: "0.96rem",
+                color: subtleText,
+              }}
+            >
+              Mastered the core modules? Challenge yourself with a dynamically generated, zero-day phishing scenario powered by our Generative AI Threat Engine.
+            </p>
+
+            <button
+              style={{
+                ...pillButton,
+                background: aiLoading ? "#a78bfa" : "#7c3aed", // Purple button
+                color: "#fff",
+                border: "none",
+                padding: "12px 20px",
+                width: "100%",
+                marginTop: "auto"
+              }}
+              onClick={fetchAIQuiz}
+              disabled={aiLoading}
+              aria-label="Generate an AI Phishing Scenario"
+            >
+              {aiLoading ? "Generating Threat..." : "Play AI Scenario"}
+            </button>
+          </section>
+        </div>
       </main>
     </div>
   );

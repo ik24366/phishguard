@@ -12,7 +12,7 @@ from openai import OpenAI
 # Initialize the OpenAI client. 
 # Note: For testing, you can temporarily replace os.environ.get("OPENAI_API_KEY") 
 # with your actual OpenAI API key string, but don't commit it to GitHub!
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = OpenAI(api_key="..")
 
 
 @api_view(["GET"])
@@ -71,7 +71,7 @@ def generate_ai_quiz(request):
             temperature=0.7,
         )
 
-        # Extract the text content from the AI response
+               # Extract the text content from the AI response
         ai_content = response.choices[0].message.content
         
         # Safety check: Remove markdown backticks if the AI accidentally includes them
@@ -81,7 +81,16 @@ def generate_ai_quiz(request):
             ai_content = ai_content[3:-3].strip()
 
         # Parse it into a Python dictionary
-        ai_quiz_data = json.loads(ai_content)
+        generated_question = json.loads(ai_content)
+
+        # Wrap it so it matches your normal Django Module structure perfectly
+        ai_quiz_data = {
+            "title": "Adaptive AI Scenario",
+            "description": "Dynamically generated threat scenario.",
+            "questions": [
+                generated_question
+            ]
+        }
 
         # Send it to the React frontend
         return Response(ai_quiz_data)

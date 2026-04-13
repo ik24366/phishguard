@@ -1,0 +1,1661 @@
+[
+    {
+        "model": "api.module",
+        "pk": 1,
+        "fields": {
+            "title": "Email Basics",
+            "description": "Teaches the fundamentals of identifying email phishing attempts, focusing on URLs, sender addresses, and false urgency.",
+            "order": 1
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Helpdesk <support@company-update-portal.com>",
+            "subject": "URGENT: Password Expiry in 24 hours",
+            "body": "Dear User,\n\nYour account password will expire in 24 hours. Please click the link below to verify your account and keep your current password.\n\nThank you,\nIT Support",
+            "link_url": "http://company-update-portal.com/verify"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 1,
+        "fields": {
+            "question": 1,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 2,
+        "fields": {
+            "question": 1,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 2,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "HR Department <hr@secure-login-auth.net>",
+            "subject": "Action Required: Updated Company Policy",
+            "body": "Hello,\n\nPlease review the updated employee handbook and code of conduct. You are required to sign the acknowledgment document by end of day.\n\nRegards,\nHuman Resources",
+            "link_url": "http://secure-login-auth.net/document-viewer"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3,
+        "fields": {
+            "question": 2,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 4,
+        "fields": {
+            "question": 2,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Billing Team <billing@rnicrosoft-support.com>",
+            "subject": "Invoice #4366 Overdue",
+            "body": "Dear Customer,\n\nYour recent payment for Invoice #4366 failed to process. To avoid service suspension, please update your payment details immediately.",
+            "link_url": "http://rnicrosoft-support.com/secure-payment"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 5,
+        "fields": {
+            "question": 3,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 6,
+        "fields": {
+            "question": 3,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 4,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Package Delivery <tracking@bamboohr-updates.com>",
+            "subject": "Delivery Attempt Failed",
+            "body": "Hello,\n\nWe attempted to deliver your package today but nobody was available. Please schedule a redelivery by paying the $1.99 processing fee.",
+            "link_url": "http://bamboohr-updates.com/tracking-reschedule"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 7,
+        "fields": {
+            "question": 4,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 8,
+        "fields": {
+            "question": 4,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 5,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alert <alerts@paypaI-billing.com>",
+            "subject": "Unusual Login Activity Detected",
+            "body": "Dear User,\n\nWe detected a login from a new device in Russia. If this was not you, please secure your account immediately by clicking the link below.",
+            "link_url": "http://paypaI-billing.com/account-secure"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9,
+        "fields": {
+            "question": 5,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 10,
+        "fields": {
+            "question": 5,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 6,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Helpdesk <support@dhl-tracking-alerts.com>",
+            "subject": "URGENT: Password Expiry in 12 hours",
+            "body": "Dear User,\n\nYour account password will expire in 12 hours. Please click the link below to verify your account and keep your current password.\n\nThank you,\nIT Support",
+            "link_url": "http://dhl-tracking-alerts.com/verify"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 11,
+        "fields": {
+            "question": 6,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 12,
+        "fields": {
+            "question": 6,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 7,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "HR Department <hr@service-desk-verify.net>",
+            "subject": "Action Required: Updated Company Policy",
+            "body": "Hello,\n\nPlease review the updated employee handbook and code of conduct. You are required to sign the acknowledgment document by end of day.\n\nRegards,\nHuman Resources",
+            "link_url": "http://service-desk-verify.net/document-viewer"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 13,
+        "fields": {
+            "question": 7,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 14,
+        "fields": {
+            "question": 7,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 8,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Billing Team <billing@company-update-portal.com>",
+            "subject": "Invoice #4393 Overdue",
+            "body": "Dear Customer,\n\nYour recent payment for Invoice #4393 failed to process. To avoid service suspension, please update your payment details immediately.",
+            "link_url": "http://company-update-portal.com/secure-payment"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 15,
+        "fields": {
+            "question": 8,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 16,
+        "fields": {
+            "question": 8,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 9,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Package Delivery <tracking@secure-login-auth.net>",
+            "subject": "Delivery Attempt Failed",
+            "body": "Hello,\n\nWe attempted to deliver your package today but nobody was available. Please schedule a redelivery by paying the $1.99 processing fee.",
+            "link_url": "http://secure-login-auth.net/tracking-reschedule"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 17,
+        "fields": {
+            "question": 9,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 18,
+        "fields": {
+            "question": 9,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 10,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alert <alerts@rnicrosoft-support.com>",
+            "subject": "Unusual Login Activity Detected",
+            "body": "Dear User,\n\nWe detected a login from a new device in Russia. If this was not you, please secure your account immediately by clicking the link below.",
+            "link_url": "http://rnicrosoft-support.com/account-secure"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 19,
+        "fields": {
+            "question": 10,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 20,
+        "fields": {
+            "question": 10,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 11,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Helpdesk <support@bamboohr-updates.com>",
+            "subject": "URGENT: Password Expiry in 48 hours",
+            "body": "Dear User,\n\nYour account password will expire in 48 hours. Please click the link below to verify your account and keep your current password.\n\nThank you,\nIT Support",
+            "link_url": "http://bamboohr-updates.com/verify"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 21,
+        "fields": {
+            "question": 11,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 22,
+        "fields": {
+            "question": 11,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 12,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "HR Department <hr@paypaI-billing.com>",
+            "subject": "Action Required: Updated Company Policy",
+            "body": "Hello,\n\nPlease review the updated employee handbook and code of conduct. You are required to sign the acknowledgment document by end of day.\n\nRegards,\nHuman Resources",
+            "link_url": "http://paypaI-billing.com/document-viewer"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 23,
+        "fields": {
+            "question": 12,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 24,
+        "fields": {
+            "question": 12,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 13,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Billing Team <billing@dhl-tracking-alerts.com>",
+            "subject": "Invoice #1679 Overdue",
+            "body": "Dear Customer,\n\nYour recent payment for Invoice #1679 failed to process. To avoid service suspension, please update your payment details immediately.",
+            "link_url": "http://dhl-tracking-alerts.com/secure-payment"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 25,
+        "fields": {
+            "question": 13,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 26,
+        "fields": {
+            "question": 13,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 14,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Package Delivery <tracking@service-desk-verify.net>",
+            "subject": "Delivery Attempt Failed",
+            "body": "Hello,\n\nWe attempted to deliver your package today but nobody was available. Please schedule a redelivery by paying the $1.99 processing fee.",
+            "link_url": "http://service-desk-verify.net/tracking-reschedule"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 27,
+        "fields": {
+            "question": 14,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 28,
+        "fields": {
+            "question": 14,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 15,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alert <alerts@company-update-portal.com>",
+            "subject": "Unusual Login Activity Detected",
+            "body": "Dear User,\n\nWe detected a login from a new device in Russia. If this was not you, please secure your account immediately by clicking the link below.",
+            "link_url": "http://company-update-portal.com/account-secure"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 29,
+        "fields": {
+            "question": 15,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 30,
+        "fields": {
+            "question": 15,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 16,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Helpdesk <support@secure-login-auth.net>",
+            "subject": "URGENT: Password Expiry in 2 hours",
+            "body": "Dear User,\n\nYour account password will expire in 2 hours. Please click the link below to verify your account and keep your current password.\n\nThank you,\nIT Support",
+            "link_url": "http://secure-login-auth.net/verify"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 31,
+        "fields": {
+            "question": 16,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 32,
+        "fields": {
+            "question": 16,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 17,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "HR Department <hr@rnicrosoft-support.com>",
+            "subject": "Action Required: Updated Company Policy",
+            "body": "Hello,\n\nPlease review the updated employee handbook and code of conduct. You are required to sign the acknowledgment document by end of day.\n\nRegards,\nHuman Resources",
+            "link_url": "http://rnicrosoft-support.com/document-viewer"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 33,
+        "fields": {
+            "question": 17,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 34,
+        "fields": {
+            "question": 17,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 18,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Billing Team <billing@bamboohr-updates.com>",
+            "subject": "Invoice #3181 Overdue",
+            "body": "Dear Customer,\n\nYour recent payment for Invoice #3181 failed to process. To avoid service suspension, please update your payment details immediately.",
+            "link_url": "http://bamboohr-updates.com/secure-payment"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 35,
+        "fields": {
+            "question": 18,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 36,
+        "fields": {
+            "question": 18,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 19,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Package Delivery <tracking@paypaI-billing.com>",
+            "subject": "Delivery Attempt Failed",
+            "body": "Hello,\n\nWe attempted to deliver your package today but nobody was available. Please schedule a redelivery by paying the $1.99 processing fee.",
+            "link_url": "http://paypaI-billing.com/tracking-reschedule"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 37,
+        "fields": {
+            "question": 19,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 38,
+        "fields": {
+            "question": 19,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 20,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alert <alerts@dhl-tracking-alerts.com>",
+            "subject": "Unusual Login Activity Detected",
+            "body": "Dear User,\n\nWe detected a login from a new device in Russia. If this was not you, please secure your account immediately by clicking the link below.",
+            "link_url": "http://dhl-tracking-alerts.com/account-secure"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 39,
+        "fields": {
+            "question": 20,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 40,
+        "fields": {
+            "question": 20,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 21,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Helpdesk <support@service-desk-verify.net>",
+            "subject": "URGENT: Password Expiry in 24 hours",
+            "body": "Dear User,\n\nYour account password will expire in 24 hours. Please click the link below to verify your account and keep your current password.\n\nThank you,\nIT Support",
+            "link_url": "http://service-desk-verify.net/verify"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 41,
+        "fields": {
+            "question": 21,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 42,
+        "fields": {
+            "question": 21,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 22,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "HR Department <hr@company-update-portal.com>",
+            "subject": "Action Required: Updated Company Policy",
+            "body": "Hello,\n\nPlease review the updated employee handbook and code of conduct. You are required to sign the acknowledgment document by end of day.\n\nRegards,\nHuman Resources",
+            "link_url": "http://company-update-portal.com/document-viewer"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 43,
+        "fields": {
+            "question": 22,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 44,
+        "fields": {
+            "question": 22,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 23,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Billing Team <billing@secure-login-auth.net>",
+            "subject": "Invoice #7233 Overdue",
+            "body": "Dear Customer,\n\nYour recent payment for Invoice #7233 failed to process. To avoid service suspension, please update your payment details immediately.",
+            "link_url": "http://secure-login-auth.net/secure-payment"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 45,
+        "fields": {
+            "question": 23,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 46,
+        "fields": {
+            "question": 23,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 24,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Package Delivery <tracking@rnicrosoft-support.com>",
+            "subject": "Delivery Attempt Failed",
+            "body": "Hello,\n\nWe attempted to deliver your package today but nobody was available. Please schedule a redelivery by paying the $1.99 processing fee.",
+            "link_url": "http://rnicrosoft-support.com/tracking-reschedule"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 47,
+        "fields": {
+            "question": 24,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 48,
+        "fields": {
+            "question": 24,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 25,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alert <alerts@bamboohr-updates.com>",
+            "subject": "Unusual Login Activity Detected",
+            "body": "Dear User,\n\nWe detected a login from a new device in Russia. If this was not you, please secure your account immediately by clicking the link below.",
+            "link_url": "http://bamboohr-updates.com/account-secure"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 49,
+        "fields": {
+            "question": 25,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 50,
+        "fields": {
+            "question": 25,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 26,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Helpdesk <support@paypaI-billing.com>",
+            "subject": "URGENT: Password Expiry in 12 hours",
+            "body": "Dear User,\n\nYour account password will expire in 12 hours. Please click the link below to verify your account and keep your current password.\n\nThank you,\nIT Support",
+            "link_url": "http://paypaI-billing.com/verify"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 51,
+        "fields": {
+            "question": 26,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 52,
+        "fields": {
+            "question": 26,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 27,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "HR Department <hr@dhl-tracking-alerts.com>",
+            "subject": "Action Required: Updated Company Policy",
+            "body": "Hello,\n\nPlease review the updated employee handbook and code of conduct. You are required to sign the acknowledgment document by end of day.\n\nRegards,\nHuman Resources",
+            "link_url": "http://dhl-tracking-alerts.com/document-viewer"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 53,
+        "fields": {
+            "question": 27,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 54,
+        "fields": {
+            "question": 27,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 28,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Billing Team <billing@service-desk-verify.net>",
+            "subject": "Invoice #2161 Overdue",
+            "body": "Dear Customer,\n\nYour recent payment for Invoice #2161 failed to process. To avoid service suspension, please update your payment details immediately.",
+            "link_url": "http://service-desk-verify.net/secure-payment"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 55,
+        "fields": {
+            "question": 28,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 56,
+        "fields": {
+            "question": 28,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 29,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Package Delivery <tracking@company-update-portal.com>",
+            "subject": "Delivery Attempt Failed",
+            "body": "Hello,\n\nWe attempted to deliver your package today but nobody was available. Please schedule a redelivery by paying the $1.99 processing fee.",
+            "link_url": "http://company-update-portal.com/tracking-reschedule"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 57,
+        "fields": {
+            "question": 29,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 58,
+        "fields": {
+            "question": 29,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'company-update-portal.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 30,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alert <alerts@secure-login-auth.net>",
+            "subject": "Unusual Login Activity Detected",
+            "body": "Dear User,\n\nWe detected a login from a new device in Russia. If this was not you, please secure your account immediately by clicking the link below.",
+            "link_url": "http://secure-login-auth.net/account-secure"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 59,
+        "fields": {
+            "question": 30,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 60,
+        "fields": {
+            "question": 30,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'secure-login-auth.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 31,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Helpdesk <support@rnicrosoft-support.com>",
+            "subject": "URGENT: Password Expiry in 48 hours",
+            "body": "Dear User,\n\nYour account password will expire in 48 hours. Please click the link below to verify your account and keep your current password.\n\nThank you,\nIT Support",
+            "link_url": "http://rnicrosoft-support.com/verify"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 61,
+        "fields": {
+            "question": 31,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 62,
+        "fields": {
+            "question": 31,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'rnicrosoft-support.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 32,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "HR Department <hr@bamboohr-updates.com>",
+            "subject": "Action Required: Updated Company Policy",
+            "body": "Hello,\n\nPlease review the updated employee handbook and code of conduct. You are required to sign the acknowledgment document by end of day.\n\nRegards,\nHuman Resources",
+            "link_url": "http://bamboohr-updates.com/document-viewer"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 63,
+        "fields": {
+            "question": 32,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 64,
+        "fields": {
+            "question": 32,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'bamboohr-updates.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 33,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Billing Team <billing@paypaI-billing.com>",
+            "subject": "Invoice #7130 Overdue",
+            "body": "Dear Customer,\n\nYour recent payment for Invoice #7130 failed to process. To avoid service suspension, please update your payment details immediately.",
+            "link_url": "http://paypaI-billing.com/secure-payment"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 65,
+        "fields": {
+            "question": 33,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 66,
+        "fields": {
+            "question": 33,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'paypaI-billing.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 34,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Package Delivery <tracking@dhl-tracking-alerts.com>",
+            "subject": "Delivery Attempt Failed",
+            "body": "Hello,\n\nWe attempted to deliver your package today but nobody was available. Please schedule a redelivery by paying the $1.99 processing fee.",
+            "link_url": "http://dhl-tracking-alerts.com/tracking-reschedule"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 67,
+        "fields": {
+            "question": 34,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 68,
+        "fields": {
+            "question": 34,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'dhl-tracking-alerts.com' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 35,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alert <alerts@service-desk-verify.net>",
+            "subject": "Unusual Login Activity Detected",
+            "body": "Dear User,\n\nWe detected a login from a new device in Russia. If this was not you, please secure your account immediately by clicking the link below.",
+            "link_url": "http://service-desk-verify.net/account-secure"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 69,
+        "fields": {
+            "question": 35,
+            "text": "Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 70,
+        "fields": {
+            "question": 35,
+            "text": "Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a phishing attempt. The sender domain 'service-desk-verify.net' is typosquatted or unaffiliated with official services. It uses psychological triggers like false urgency or fear, and lacks personalization (e.g., 'Dear User'). Always hover over links before clicking."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 36,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Support <it@yourcompany.com>",
+            "subject": "Scheduled Maintenance Notice",
+            "body": "Hi team,\n\nWe will be performing routine server maintenance this Saturday from 2 AM to 4 AM. Internal portals may be briefly unavailable. No action is required on your part.\n\nThanks,\nIT",
+            "link_url": "https://intranet.yourcompany.com/it/maintenance"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 71,
+        "fields": {
+            "question": 36,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 72,
+        "fields": {
+            "question": 36,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 37,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Jane Doe (HR) <jane.doe@yourcompany.com>",
+            "subject": "Monthly Newsletter & Updates",
+            "body": "Hi everyone,\n\nPlease find attached the monthly newsletter detailing our recent team events and upcoming public holidays. Have a great weekend!",
+            "link_url": "https://intranet.yourcompany.com/newsletter"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 73,
+        "fields": {
+            "question": 37,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 74,
+        "fields": {
+            "question": 37,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 38,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Finance Department <finance@yourcompany.com>",
+            "subject": "Expense Report Approvals",
+            "body": "Hello,\n\nJust a friendly reminder to submit your end-of-month expense reports by Friday at 5 PM. You can find the submission portal on the main intranet dashboard.",
+            "link_url": "https://expenses.yourcompany.com/login"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 75,
+        "fields": {
+            "question": 38,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 76,
+        "fields": {
+            "question": 38,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 39,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Project Manager <pm@yourcompany.com>",
+            "subject": "Notes from today's sync",
+            "body": "Hi team,\n\nGreat meeting today. I've uploaded the meeting minutes to our shared internal drive. Let me know if I missed anything.",
+            "link_url": "https://drive.yourcompany.com/meeting-notes"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 77,
+        "fields": {
+            "question": 39,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 78,
+        "fields": {
+            "question": 39,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 40,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alerts <security@yourcompany.com>",
+            "subject": "Quarterly Security Reminders",
+            "body": "Hi all,\n\nAs part of our quarterly review, please ensure your devices are updated to the latest OS version. Reach out to the helpdesk if you need assistance.",
+            "link_url": "https://intranet.yourcompany.com/security"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 79,
+        "fields": {
+            "question": 40,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 80,
+        "fields": {
+            "question": 40,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 41,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Support <it@yourcompany.com>",
+            "subject": "Scheduled Maintenance Notice",
+            "body": "Hi team,\n\nWe will be performing routine server maintenance this Saturday from 2 AM to 4 AM. Internal portals may be briefly unavailable. No action is required on your part.\n\nThanks,\nIT",
+            "link_url": "https://intranet.yourcompany.com/it/maintenance"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 81,
+        "fields": {
+            "question": 41,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 82,
+        "fields": {
+            "question": 41,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 42,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Jane Doe (HR) <jane.doe@yourcompany.com>",
+            "subject": "Monthly Newsletter & Updates",
+            "body": "Hi everyone,\n\nPlease find attached the monthly newsletter detailing our recent team events and upcoming public holidays. Have a great weekend!",
+            "link_url": "https://intranet.yourcompany.com/newsletter"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 83,
+        "fields": {
+            "question": 42,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 84,
+        "fields": {
+            "question": 42,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 43,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Finance Department <finance@yourcompany.com>",
+            "subject": "Expense Report Approvals",
+            "body": "Hello,\n\nJust a friendly reminder to submit your end-of-month expense reports by Friday at 5 PM. You can find the submission portal on the main intranet dashboard.",
+            "link_url": "https://expenses.yourcompany.com/login"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 85,
+        "fields": {
+            "question": 43,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 86,
+        "fields": {
+            "question": 43,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 44,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Project Manager <pm@yourcompany.com>",
+            "subject": "Notes from today's sync",
+            "body": "Hi team,\n\nGreat meeting today. I've uploaded the meeting minutes to our shared internal drive. Let me know if I missed anything.",
+            "link_url": "https://drive.yourcompany.com/meeting-notes"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 87,
+        "fields": {
+            "question": 44,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 88,
+        "fields": {
+            "question": 44,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 45,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alerts <security@yourcompany.com>",
+            "subject": "Quarterly Security Reminders",
+            "body": "Hi all,\n\nAs part of our quarterly review, please ensure your devices are updated to the latest OS version. Reach out to the helpdesk if you need assistance.",
+            "link_url": "https://intranet.yourcompany.com/security"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 89,
+        "fields": {
+            "question": 45,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 90,
+        "fields": {
+            "question": 45,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 46,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "IT Support <it@yourcompany.com>",
+            "subject": "Scheduled Maintenance Notice",
+            "body": "Hi team,\n\nWe will be performing routine server maintenance this Saturday from 2 AM to 4 AM. Internal portals may be briefly unavailable. No action is required on your part.\n\nThanks,\nIT",
+            "link_url": "https://intranet.yourcompany.com/it/maintenance"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 91,
+        "fields": {
+            "question": 46,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 92,
+        "fields": {
+            "question": 46,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 47,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Jane Doe (HR) <jane.doe@yourcompany.com>",
+            "subject": "Monthly Newsletter & Updates",
+            "body": "Hi everyone,\n\nPlease find attached the monthly newsletter detailing our recent team events and upcoming public holidays. Have a great weekend!",
+            "link_url": "https://intranet.yourcompany.com/newsletter"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 93,
+        "fields": {
+            "question": 47,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 94,
+        "fields": {
+            "question": 47,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 48,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Finance Department <finance@yourcompany.com>",
+            "subject": "Expense Report Approvals",
+            "body": "Hello,\n\nJust a friendly reminder to submit your end-of-month expense reports by Friday at 5 PM. You can find the submission portal on the main intranet dashboard.",
+            "link_url": "https://expenses.yourcompany.com/login"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 95,
+        "fields": {
+            "question": 48,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 96,
+        "fields": {
+            "question": 48,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 49,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Project Manager <pm@yourcompany.com>",
+            "subject": "Notes from today's sync",
+            "body": "Hi team,\n\nGreat meeting today. I've uploaded the meeting minutes to our shared internal drive. Let me know if I missed anything.",
+            "link_url": "https://drive.yourcompany.com/meeting-notes"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 97,
+        "fields": {
+            "question": 49,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 98,
+        "fields": {
+            "question": 49,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 50,
+        "fields": {
+            "module": 1,
+            "type": "EMAIL",
+            "prompt_text": "Is this email legitimate or a phishing attempt?",
+            "sender": "Security Alerts <security@yourcompany.com>",
+            "subject": "Quarterly Security Reminders",
+            "body": "Hi all,\n\nAs part of our quarterly review, please ensure your devices are updated to the latest OS version. Reach out to the helpdesk if you need assistance.",
+            "link_url": "https://intranet.yourcompany.com/security"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 99,
+        "fields": {
+            "question": 50,
+            "text": "Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 100,
+        "fields": {
+            "question": 50,
+            "text": "Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate internal email. The sender domain matches your company's actual domain, it addresses you appropriately, and there is no false urgency or suspicious request for credentials."
+        }
+    }
+]

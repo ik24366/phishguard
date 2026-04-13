@@ -3,6 +3,8 @@ import "./App.css";
 import LoginForm from "./LoginForm";
 import Dashboard from "./Dashboard";
 import TrainingModule from "./TrainingModule";
+import VishingScenario from './VishingScenario';
+
 
 export default function App() {
   const [page, setPage] = useState("login");

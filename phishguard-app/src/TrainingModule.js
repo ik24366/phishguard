@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import VishingScenario from './VishingScenario';
+
 export default function TrainingModule({ highContrast, onNext, moduleId, onComplete, aiQuizData }) {
   // --- STATE MANAGEMENT ---
   const [moduleData, setModuleData] = useState(null);
@@ -284,36 +286,34 @@ export default function TrainingModule({ highContrast, onNext, moduleId, onCompl
           </div>
         </div>
 
-        {/* RIGHT: Scenario Display */}
-        <div style={{ ...cardBase, flex: "1 1 320px" }}>
-          <h2 style={{ marginTop: 0, marginBottom: "12px", fontSize: "1.1rem", fontWeight: "600" }}>
-            {currentQuestion.type === 'SMS' ? 'SMS Message' : 'Email'}
+        {/* RIGHT Scenario Display */}
+        <div style={{ ...cardBase, flex: '1 1 320px' }}>
+          <h2 style={{ marginTop: 0, marginBottom: '12px', fontSize: '1.1rem', fontWeight: '600' }}>
+            {currentQuestion.type?.toUpperCase() === 'VISHING' ? 'Voice Message' :
+              (currentQuestion.type?.toUpperCase() === 'SMS' ? 'SMS Message' : 'Email')}
           </h2>
 
-          <div
-            style={{
-              fontSize: "0.95rem", lineHeight: 1.6, textAlign: "left", borderRadius: "8px",
-              padding: "12px 14px", background: highContrast ? "#111" : "#f9fafb", border: `1px solid ${borderColor}`,
-            }}
-          >
-            <p style={{ marginTop: 0 }}>
-              <strong>From:</strong> {currentQuestion.sender}
-            </p>
-
-            {currentQuestion.type === 'EMAIL' && (
-              <p><strong>Subject:</strong> {currentQuestion.subject}</p>
-            )}
-
-            <p style={{ whiteSpace: 'pre-wrap' }}>{currentQuestion.body}</p>
-
-            {currentQuestion.link_url && (
-              <p>
-                <a href={currentQuestion.link_url} target="_blank" rel="noopener noreferrer" style={{ color: accentColor, wordBreak: 'break-all' }}>
-                  {currentQuestion.link_url}
-                </a>
-              </p>
-            )}
-          </div>
+          {currentQuestion.type?.toUpperCase() === 'VISHING' ? (
+            <VishingScenario
+              callerId={currentQuestion.sender}
+              audioSrc={currentQuestion.link_url || currentQuestion.linkurl}
+              transcript={currentQuestion.body}
+              highContrast={highContrast}
+            />
+          ) : (
+            <div style={{ fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'left', borderRadius: '8px', padding: '12px 14px', background: highContrast ? '#111' : '#f9fafb', border: `1px solid ${borderColor}` }}>
+              <p style={{ marginTop: 0 }}><strong>From:</strong> {currentQuestion.sender}</p>
+              {currentQuestion.type?.toUpperCase() === 'EMAIL' && <p><strong>Subject:</strong> {currentQuestion.subject}</p>}
+              <p style={{ whiteSpace: 'pre-wrap' }}>{currentQuestion.body}</p>
+              {(currentQuestion.link_url || currentQuestion.linkurl) && (
+                <p>
+                  <a href={currentQuestion.link_url || currentQuestion.linkurl} target="_blank" rel="noopener noreferrer" style={{ color: accentColor, wordBreak: 'break-all' }}>
+                    {currentQuestion.link_url || currentQuestion.linkurl}
+                  </a>
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </section>
 

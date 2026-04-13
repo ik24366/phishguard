@@ -30,15 +30,29 @@ def get_module_list(request):
     return Response(serializer.data)
 
 
-# 3. NEW function for fetching a single quiz
+# 3. UPDATED function for fetching a single quiz with exactly 10 random questions
 @api_view(['GET'])
 def get_quiz_by_id(request, pk):
     try:
         module = Module.objects.get(pk=pk)
         serializer = ModuleSerializer(module)
-        return Response(serializer.data)
+        
+        # 1. Convert the serialized data into a Python dictionary we can edit
+        data = dict(serializer.data)
+        
+        # 2. Extract the questions list (default to empty list if none exist)
+        questions = list(data.get('questions', []))
+        
+        # 3. Shuffle the questions randomly
+        random.shuffle(questions)
+        
+        # 4. Slice the list to keep ONLY the first 10 questions (or fewer if there are less than 10)
+        data['questions'] = questions[:10]
+        
+        return Response(data)
+        
     except Module.DoesNotExist:
-        return Response(status=404)
+        return Response({"error": "Module not found"}, status=404)
 
 
 # 4. NEW function for AI generated quiz using Few-Shot Prompting

@@ -26,6 +26,7 @@ class Question(models.Model):
         ('EMAIL', 'Email'),
         ('SMS', 'SMS'),
         ('SOCIAL', 'Social'),
+        ('VISHING', 'Vishing/Voice'),
     ]
 
     module = models.ForeignKey(Module, related_name='questions',

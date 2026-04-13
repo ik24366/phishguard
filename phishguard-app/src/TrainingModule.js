@@ -27,21 +27,26 @@ export default function TrainingModule({ highContrast, onNext, moduleId, onCompl
             return;
           }
 
-          const formattedQuestions = rawQuestions.map((q, index) => ({
-            id: index + 100, // Give it a fake ID so React keys work
-            prompt_text: "Is this scenario legitimate or a phishing attempt?",
-            type: q.type || 'EMAIL',
-            sender: q.sender || 'Unknown Sender',
-            subject: q.subject || 'Urgent Notification',
-            body: q.body || q.content || '...',
-            link_url: q.link_url || null,
-            is_phishing: q.is_phishing,
-            feedback_text: q.feedback_text || (q.is_phishing ? "This was a phishing attempt!" : "This was legitimate."),
-            choices: [
-              { id: 'legit', text: "Legitimate", is_correct: !q.is_phishing, feedback_text: q.feedback_text || "This was legitimate." },
-              { id: 'phish', text: "Phishing", is_correct: q.is_phishing, feedback_text: q.feedback_text || "This was a phishing attempt!" }
-            ]
-          }));
+          const formattedQuestions = rawQuestions.map((q, index) => {
+            // Support both camelCase and snake_case just in case the AI hallucinates
+            const isPhishing = q.isPhishing !== undefined ? q.isPhishing : q.is_phishing;
+
+            return {
+              id: index + 100,
+              prompt_text: "Is this scenario legitimate or a phishing attempt?",
+              type: q.type || 'EMAIL',
+              sender: q.sender || 'Unknown Sender',
+              subject: q.subject || 'Urgent Notification',
+              body: q.body || q.content || '...',
+              link_url: q.link_url || null,
+              is_phishing: isPhishing,
+              feedback_text: q.feedback_text || q.red_flags_explanation || (isPhishing ? "This was a phishing attempt!" : "This was legitimate."),
+              choices: [
+                { id: 'legit', text: "Legitimate", is_correct: !isPhishing, feedback_text: q.feedback_text || q.red_flags_explanation || "This was legitimate." },
+                { id: 'phish', text: "Phishing", is_correct: isPhishing, feedback_text: q.feedback_text || q.red_flags_explanation || "This was a phishing attempt!" }
+              ]
+            }
+          });
 
           setModuleData({ title: "Adaptive AI Scenario", description: "Dynamically generated threat." });
           setQuestions(formattedQuestions);

@@ -1,0 +1,2152 @@
+[
+    {
+        "model": "api.question",
+        "pk": 3018,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin Support (@TUDubIin_Help)",
+            "subject": "Public Reply to your Tweet",
+            "body": "We are sorry you are experiencing issues with the student portal. Please DM us your student ID and password so we can reset your account manually, or visit: http://tudublin-support-desk.info",
+            "link_url": "http://tudublin-support-desk.info"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9054,
+        "fields": {
+            "question": 3018,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9055,
+        "fields": {
+            "question": 3018,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9056,
+        "fields": {
+            "question": 3018,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3030,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin (@TUDublin)",
+            "subject": "Public Tweet/Post",
+            "body": "Welcome to all our new first-year students! Check out the campus map and orientation schedule here: https://tudublin.ie/orientation",
+            "link_url": "https://tudublin.ie/orientation"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9090,
+        "fields": {
+            "question": 3030,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9091,
+        "fields": {
+            "question": 3030,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9092,
+        "fields": {
+            "question": 3030,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3001,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Elon Musk (@eIon_musk_official) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "I'm feeling generous today! The first 1,000 people to send 0.1 BTC to my wallet address will receive 1.0 BTC back! Click the link below to participate: http://crypto-doubler-event.net",
+            "link_url": "http://crypto-doubler-event.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9003,
+        "fields": {
+            "question": 3001,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9004,
+        "fields": {
+            "question": 3001,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9005,
+        "fields": {
+            "question": 3001,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3002,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Jane Doe (Your Friend)",
+            "subject": "Facebook Messenger",
+            "body": "Omg is this a video of you?? \ud83d\ude31 I can't believe someone posted this! Watch it here before it gets taken down: http://facebook-video-login-secure.com",
+            "link_url": "http://facebook-video-login-secure.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9006,
+        "fields": {
+            "question": 3002,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9007,
+        "fields": {
+            "question": 3002,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9008,
+        "fields": {
+            "question": 3002,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3040,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin (@TUDublin)",
+            "subject": "Public Tweet/Post",
+            "body": "Welcome to all our new first-year students! Check out the campus map and orientation schedule here: https://tudublin.ie/orientation",
+            "link_url": "https://tudublin.ie/orientation"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9120,
+        "fields": {
+            "question": 3040,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9121,
+        "fields": {
+            "question": 3040,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9122,
+        "fields": {
+            "question": 3040,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3047,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Spotify (@Spotify) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "Your 2025 Wrapped is officially here! Head over to the app to see your top artists and songs of the year. \ud83c\udfb6",
+            "link_url": "https://spotify.com/wrapped"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9141,
+        "fields": {
+            "question": 3047,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9142,
+        "fields": {
+            "question": 3047,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9143,
+        "fields": {
+            "question": 3047,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3035,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin (@TUDublin)",
+            "subject": "Public Tweet/Post",
+            "body": "Welcome to all our new first-year students! Check out the campus map and orientation schedule here: https://tudublin.ie/orientation",
+            "link_url": "https://tudublin.ie/orientation"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9105,
+        "fields": {
+            "question": 3035,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9106,
+        "fields": {
+            "question": 3035,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9107,
+        "fields": {
+            "question": 3035,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3020,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Instagram Support (@Insta_Security_Team)",
+            "subject": "Direct Message (DM)",
+            "body": "Your account has been reported for copyright violation. If you do not verify your identity within 24 hours, your account will be permanently deleted. Click here: http://ig-copyright-appeal.com",
+            "link_url": "http://ig-copyright-appeal.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9060,
+        "fields": {
+            "question": 3020,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9061,
+        "fields": {
+            "question": 3020,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9062,
+        "fields": {
+            "question": 3020,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3039,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Local Cafe (@TheDailyGrind)",
+            "subject": "Instagram Story / Post",
+            "body": "Happy Friday! Show this post to the barista today to get 10% off your morning coffee. \u2615\ufe0f",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9117,
+        "fields": {
+            "question": 3039,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9118,
+        "fields": {
+            "question": 3039,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9119,
+        "fields": {
+            "question": 3039,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3003,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin Support (@TUDubIin_Help)",
+            "subject": "Public Reply to your Tweet",
+            "body": "We are sorry you are experiencing issues with the student portal. Please DM us your student ID and password so we can reset your account manually, or visit: http://tudublin-support-desk.info",
+            "link_url": "http://tudublin-support-desk.info"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9009,
+        "fields": {
+            "question": 3003,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9010,
+        "fields": {
+            "question": 3003,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9011,
+        "fields": {
+            "question": 3003,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3007,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Jane Doe (Your Friend)",
+            "subject": "Facebook Messenger",
+            "body": "Omg is this a video of you?? \ud83d\ude31 I can't believe someone posted this! Watch it here before it gets taken down: http://facebook-video-login-secure.com",
+            "link_url": "http://facebook-video-login-secure.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9021,
+        "fields": {
+            "question": 3007,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9022,
+        "fields": {
+            "question": 3007,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9023,
+        "fields": {
+            "question": 3007,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3013,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin Support (@TUDubIin_Help)",
+            "subject": "Public Reply to your Tweet",
+            "body": "We are sorry you are experiencing issues with the student portal. Please DM us your student ID and password so we can reset your account manually, or visit: http://tudublin-support-desk.info",
+            "link_url": "http://tudublin-support-desk.info"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9039,
+        "fields": {
+            "question": 3013,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9040,
+        "fields": {
+            "question": 3013,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9041,
+        "fields": {
+            "question": 3013,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3014,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Shein Giveaways (@Shein_Official_Promo)",
+            "subject": "Instagram Sponsored Ad",
+            "body": "\ud83c\udf89 HUGE GIVEAWAY! \ud83c\udf89 We are giving away \u20ac500 gift cards to the first 500 people who fill out our survey! Claim yours now: http://claim-shein-giftcard.net",
+            "link_url": "http://claim-shein-giftcard.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9042,
+        "fields": {
+            "question": 3014,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9043,
+        "fields": {
+            "question": 3014,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9044,
+        "fields": {
+            "question": 3014,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3048,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "LinkedIn Jobs",
+            "subject": "LinkedIn Notification",
+            "body": "Based on your profile, we found 5 new Software Engineer roles in Dublin that might interest you. Tap to view.",
+            "link_url": "https://linkedin.com/jobs"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9144,
+        "fields": {
+            "question": 3048,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9145,
+        "fields": {
+            "question": 3048,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9146,
+        "fields": {
+            "question": 3048,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3015,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Instagram Support (@Insta_Security_Team)",
+            "subject": "Direct Message (DM)",
+            "body": "Your account has been reported for copyright violation. If you do not verify your identity within 24 hours, your account will be permanently deleted. Click here: http://ig-copyright-appeal.com",
+            "link_url": "http://ig-copyright-appeal.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9045,
+        "fields": {
+            "question": 3015,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9046,
+        "fields": {
+            "question": 3015,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9047,
+        "fields": {
+            "question": 3015,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3011,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Elon Musk (@eIon_musk_official) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "I'm feeling generous today! The first 1,000 people to send 0.1 BTC to my wallet address will receive 1.0 BTC back! Click the link below to participate: http://crypto-doubler-event.net",
+            "link_url": "http://crypto-doubler-event.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9033,
+        "fields": {
+            "question": 3011,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9034,
+        "fields": {
+            "question": 3011,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9035,
+        "fields": {
+            "question": 3011,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3033,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "LinkedIn Jobs",
+            "subject": "LinkedIn Notification",
+            "body": "Based on your profile, we found 5 new Software Engineer roles in Dublin that might interest you. Tap to view.",
+            "link_url": "https://linkedin.com/jobs"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9099,
+        "fields": {
+            "question": 3033,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9100,
+        "fields": {
+            "question": 3033,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9101,
+        "fields": {
+            "question": 3033,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3045,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin (@TUDublin)",
+            "subject": "Public Tweet/Post",
+            "body": "Welcome to all our new first-year students! Check out the campus map and orientation schedule here: https://tudublin.ie/orientation",
+            "link_url": "https://tudublin.ie/orientation"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9135,
+        "fields": {
+            "question": 3045,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9136,
+        "fields": {
+            "question": 3045,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9137,
+        "fields": {
+            "question": 3045,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3049,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Local Cafe (@TheDailyGrind)",
+            "subject": "Instagram Story / Post",
+            "body": "Happy Friday! Show this post to the barista today to get 10% off your morning coffee. \u2615\ufe0f",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9147,
+        "fields": {
+            "question": 3049,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9148,
+        "fields": {
+            "question": 3049,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9149,
+        "fields": {
+            "question": 3049,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3041,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "John Smith (Your Friend)",
+            "subject": "WhatsApp / Messenger",
+            "body": "Hey! Are we still on for studying at the library at 3 PM today? I booked a group room on the second floor.",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9123,
+        "fields": {
+            "question": 3041,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9124,
+        "fields": {
+            "question": 3041,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9125,
+        "fields": {
+            "question": 3041,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3021,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Elon Musk (@eIon_musk_official) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "I'm feeling generous today! The first 1,000 people to send 0.1 BTC to my wallet address will receive 1.0 BTC back! Click the link below to participate: http://crypto-doubler-event.net",
+            "link_url": "http://crypto-doubler-event.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9063,
+        "fields": {
+            "question": 3021,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9064,
+        "fields": {
+            "question": 3021,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9065,
+        "fields": {
+            "question": 3021,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3023,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin Support (@TUDubIin_Help)",
+            "subject": "Public Reply to your Tweet",
+            "body": "We are sorry you are experiencing issues with the student portal. Please DM us your student ID and password so we can reset your account manually, or visit: http://tudublin-support-desk.info",
+            "link_url": "http://tudublin-support-desk.info"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9069,
+        "fields": {
+            "question": 3023,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9070,
+        "fields": {
+            "question": 3023,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9071,
+        "fields": {
+            "question": 3023,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3027,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Spotify (@Spotify) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "Your 2025 Wrapped is officially here! Head over to the app to see your top artists and songs of the year. \ud83c\udfb6",
+            "link_url": "https://spotify.com/wrapped"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9081,
+        "fields": {
+            "question": 3027,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9082,
+        "fields": {
+            "question": 3027,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9083,
+        "fields": {
+            "question": 3027,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3019,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Shein Giveaways (@Shein_Official_Promo)",
+            "subject": "Instagram Sponsored Ad",
+            "body": "\ud83c\udf89 HUGE GIVEAWAY! \ud83c\udf89 We are giving away \u20ac500 gift cards to the first 500 people who fill out our survey! Claim yours now: http://claim-shein-giftcard.net",
+            "link_url": "http://claim-shein-giftcard.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9057,
+        "fields": {
+            "question": 3019,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9058,
+        "fields": {
+            "question": 3019,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9059,
+        "fields": {
+            "question": 3019,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3000,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Instagram Support (@Insta_Security_Team)",
+            "subject": "Direct Message (DM)",
+            "body": "Your account has been reported for copyright violation. If you do not verify your identity within 24 hours, your account will be permanently deleted. Click here: http://ig-copyright-appeal.com",
+            "link_url": "http://ig-copyright-appeal.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9000,
+        "fields": {
+            "question": 3000,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9001,
+        "fields": {
+            "question": 3000,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9002,
+        "fields": {
+            "question": 3000,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3032,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Spotify (@Spotify) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "Your 2025 Wrapped is officially here! Head over to the app to see your top artists and songs of the year. \ud83c\udfb6",
+            "link_url": "https://spotify.com/wrapped"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9096,
+        "fields": {
+            "question": 3032,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9097,
+        "fields": {
+            "question": 3032,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9098,
+        "fields": {
+            "question": 3032,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3005,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Instagram Support (@Insta_Security_Team)",
+            "subject": "Direct Message (DM)",
+            "body": "Your account has been reported for copyright violation. If you do not verify your identity within 24 hours, your account will be permanently deleted. Click here: http://ig-copyright-appeal.com",
+            "link_url": "http://ig-copyright-appeal.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9015,
+        "fields": {
+            "question": 3005,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9016,
+        "fields": {
+            "question": 3005,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9017,
+        "fields": {
+            "question": 3005,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3046,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "John Smith (Your Friend)",
+            "subject": "WhatsApp / Messenger",
+            "body": "Hey! Are we still on for studying at the library at 3 PM today? I booked a group room on the second floor.",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9138,
+        "fields": {
+            "question": 3046,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9139,
+        "fields": {
+            "question": 3046,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9140,
+        "fields": {
+            "question": 3046,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3031,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "John Smith (Your Friend)",
+            "subject": "WhatsApp / Messenger",
+            "body": "Hey! Are we still on for studying at the library at 3 PM today? I booked a group room on the second floor.",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9093,
+        "fields": {
+            "question": 3031,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9094,
+        "fields": {
+            "question": 3031,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9095,
+        "fields": {
+            "question": 3031,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3036,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "John Smith (Your Friend)",
+            "subject": "WhatsApp / Messenger",
+            "body": "Hey! Are we still on for studying at the library at 3 PM today? I booked a group room on the second floor.",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9108,
+        "fields": {
+            "question": 3036,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9109,
+        "fields": {
+            "question": 3036,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9110,
+        "fields": {
+            "question": 3036,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3004,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Shein Giveaways (@Shein_Official_Promo)",
+            "subject": "Instagram Sponsored Ad",
+            "body": "\ud83c\udf89 HUGE GIVEAWAY! \ud83c\udf89 We are giving away \u20ac500 gift cards to the first 500 people who fill out our survey! Claim yours now: http://claim-shein-giftcard.net",
+            "link_url": "http://claim-shein-giftcard.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9012,
+        "fields": {
+            "question": 3004,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9013,
+        "fields": {
+            "question": 3004,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9014,
+        "fields": {
+            "question": 3004,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3034,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Local Cafe (@TheDailyGrind)",
+            "subject": "Instagram Story / Post",
+            "body": "Happy Friday! Show this post to the barista today to get 10% off your morning coffee. \u2615\ufe0f",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9102,
+        "fields": {
+            "question": 3034,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9103,
+        "fields": {
+            "question": 3034,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9104,
+        "fields": {
+            "question": 3034,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3025,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin (@TUDublin)",
+            "subject": "Public Tweet/Post",
+            "body": "Welcome to all our new first-year students! Check out the campus map and orientation schedule here: https://tudublin.ie/orientation",
+            "link_url": "https://tudublin.ie/orientation"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9075,
+        "fields": {
+            "question": 3025,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9076,
+        "fields": {
+            "question": 3025,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9077,
+        "fields": {
+            "question": 3025,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate post from the official university account. The URL directs to the official tudublin.ie domain and provides helpful, non-urgent information."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3012,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Jane Doe (Your Friend)",
+            "subject": "Facebook Messenger",
+            "body": "Omg is this a video of you?? \ud83d\ude31 I can't believe someone posted this! Watch it here before it gets taken down: http://facebook-video-login-secure.com",
+            "link_url": "http://facebook-video-login-secure.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9036,
+        "fields": {
+            "question": 3012,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9037,
+        "fields": {
+            "question": 3012,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9038,
+        "fields": {
+            "question": 3012,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3006,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Elon Musk (@eIon_musk_official) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "I'm feeling generous today! The first 1,000 people to send 0.1 BTC to my wallet address will receive 1.0 BTC back! Click the link below to participate: http://crypto-doubler-event.net",
+            "link_url": "http://crypto-doubler-event.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9018,
+        "fields": {
+            "question": 3006,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9019,
+        "fields": {
+            "question": 3006,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9020,
+        "fields": {
+            "question": 3006,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3026,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "John Smith (Your Friend)",
+            "subject": "WhatsApp / Messenger",
+            "body": "Hey! Are we still on for studying at the library at 3 PM today? I booked a group room on the second floor.",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9078,
+        "fields": {
+            "question": 3026,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9079,
+        "fields": {
+            "question": 3026,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9080,
+        "fields": {
+            "question": 3026,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a normal, conversational message from a friend. It contains no suspicious links, no demands for money, and no manufactured urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3016,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Elon Musk (@eIon_musk_official) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "I'm feeling generous today! The first 1,000 people to send 0.1 BTC to my wallet address will receive 1.0 BTC back! Click the link below to participate: http://crypto-doubler-event.net",
+            "link_url": "http://crypto-doubler-event.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9048,
+        "fields": {
+            "question": 3016,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9049,
+        "fields": {
+            "question": 3016,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9050,
+        "fields": {
+            "question": 3016,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a classic cryptocurrency doubling scam. Scammers buy verified badges to impersonate celebrities and trick followers into sending money to untraceable wallets."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3042,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Spotify (@Spotify) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "Your 2025 Wrapped is officially here! Head over to the app to see your top artists and songs of the year. \ud83c\udfb6",
+            "link_url": "https://spotify.com/wrapped"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9126,
+        "fields": {
+            "question": 3042,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9127,
+        "fields": {
+            "question": 3042,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9128,
+        "fields": {
+            "question": 3042,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3038,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "LinkedIn Jobs",
+            "subject": "LinkedIn Notification",
+            "body": "Based on your profile, we found 5 new Software Engineer roles in Dublin that might interest you. Tap to view.",
+            "link_url": "https://linkedin.com/jobs"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9114,
+        "fields": {
+            "question": 3038,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9115,
+        "fields": {
+            "question": 3038,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9116,
+        "fields": {
+            "question": 3038,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3037,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Spotify (@Spotify) [Verified Check]",
+            "subject": "Public Tweet/Post",
+            "body": "Your 2025 Wrapped is officially here! Head over to the app to see your top artists and songs of the year. \ud83c\udfb6",
+            "link_url": "https://spotify.com/wrapped"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9111,
+        "fields": {
+            "question": 3037,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9112,
+        "fields": {
+            "question": 3037,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9113,
+        "fields": {
+            "question": 3037,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard promotional post from a verified brand. It directs users to the official app/website without demanding sensitive login details."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3022,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Jane Doe (Your Friend)",
+            "subject": "Facebook Messenger",
+            "body": "Omg is this a video of you?? \ud83d\ude31 I can't believe someone posted this! Watch it here before it gets taken down: http://facebook-video-login-secure.com",
+            "link_url": "http://facebook-video-login-secure.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9066,
+        "fields": {
+            "question": 3022,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9067,
+        "fields": {
+            "question": 3022,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9068,
+        "fields": {
+            "question": 3022,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3044,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Local Cafe (@TheDailyGrind)",
+            "subject": "Instagram Story / Post",
+            "body": "Happy Friday! Show this post to the barista today to get 10% off your morning coffee. \u2615\ufe0f",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9132,
+        "fields": {
+            "question": 3044,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9133,
+        "fields": {
+            "question": 3044,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9134,
+        "fields": {
+            "question": 3044,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3009,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Shein Giveaways (@Shein_Official_Promo)",
+            "subject": "Instagram Sponsored Ad",
+            "body": "\ud83c\udf89 HUGE GIVEAWAY! \ud83c\udf89 We are giving away \u20ac500 gift cards to the first 500 people who fill out our survey! Claim yours now: http://claim-shein-giftcard.net",
+            "link_url": "http://claim-shein-giftcard.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9027,
+        "fields": {
+            "question": 3009,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9028,
+        "fields": {
+            "question": 3009,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9029,
+        "fields": {
+            "question": 3009,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3008,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "TU Dublin Support (@TUDubIin_Help)",
+            "subject": "Public Reply to your Tweet",
+            "body": "We are sorry you are experiencing issues with the student portal. Please DM us your student ID and password so we can reset your account manually, or visit: http://tudublin-support-desk.info",
+            "link_url": "http://tudublin-support-desk.info"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9024,
+        "fields": {
+            "question": 3008,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9025,
+        "fields": {
+            "question": 3008,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9026,
+        "fields": {
+            "question": 3008,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a fake customer service account (typosquatting 'DubIin' with a capital 'I'). Real support accounts will never ask for your password via public replies or DMs."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3028,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "LinkedIn Jobs",
+            "subject": "LinkedIn Notification",
+            "body": "Based on your profile, we found 5 new Software Engineer roles in Dublin that might interest you. Tap to view.",
+            "link_url": "https://linkedin.com/jobs"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9084,
+        "fields": {
+            "question": 3028,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9085,
+        "fields": {
+            "question": 3028,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9086,
+        "fields": {
+            "question": 3028,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3043,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "LinkedIn Jobs",
+            "subject": "LinkedIn Notification",
+            "body": "Based on your profile, we found 5 new Software Engineer roles in Dublin that might interest you. Tap to view.",
+            "link_url": "https://linkedin.com/jobs"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9129,
+        "fields": {
+            "question": 3043,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9130,
+        "fields": {
+            "question": 3043,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9131,
+        "fields": {
+            "question": 3043,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an automated platform notification. It uses the official platform URL and does not ask for credentials outside of the app."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3017,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Jane Doe (Your Friend)",
+            "subject": "Facebook Messenger",
+            "body": "Omg is this a video of you?? \ud83d\ude31 I can't believe someone posted this! Watch it here before it gets taken down: http://facebook-video-login-secure.com",
+            "link_url": "http://facebook-video-login-secure.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9051,
+        "fields": {
+            "question": 3017,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9052,
+        "fields": {
+            "question": 3017,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9053,
+        "fields": {
+            "question": 3017,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. Your friend's account has been compromised. This is a credential harvesting scam. Clicking the link will likely lead to a fake login page designed to steal your password."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3029,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Local Cafe (@TheDailyGrind)",
+            "subject": "Instagram Story / Post",
+            "body": "Happy Friday! Show this post to the barista today to get 10% off your morning coffee. \u2615\ufe0f",
+            "link_url": ""
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9087,
+        "fields": {
+            "question": 3029,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9088,
+        "fields": {
+            "question": 3029,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9089,
+        "fields": {
+            "question": 3029,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a standard local business promotion. It does not require you to click a shady link, fill out a survey, or provide personal data."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3024,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Shein Giveaways (@Shein_Official_Promo)",
+            "subject": "Instagram Sponsored Ad",
+            "body": "\ud83c\udf89 HUGE GIVEAWAY! \ud83c\udf89 We are giving away \u20ac500 gift cards to the first 500 people who fill out our survey! Claim yours now: http://claim-shein-giftcard.net",
+            "link_url": "http://claim-shein-giftcard.net"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9072,
+        "fields": {
+            "question": 3024,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9073,
+        "fields": {
+            "question": 3024,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9074,
+        "fields": {
+            "question": 3024,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a survey scam. These ads promise massive rewards but are designed to harvest your personal information (email, phone, address) to sell to third parties."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 3010,
+        "fields": {
+            "module": 4,
+            "type": "SOCIAL",
+            "prompt_text": "Is this social media interaction legitimate or a scam?",
+            "sender": "Instagram Support (@Insta_Security_Team)",
+            "subject": "Direct Message (DM)",
+            "body": "Your account has been reported for copyright violation. If you do not verify your identity within 24 hours, your account will be permanently deleted. Click here: http://ig-copyright-appeal.com",
+            "link_url": "http://ig-copyright-appeal.com"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9030,
+        "fields": {
+            "question": 3010,
+            "text": "Definitely a Scam/Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9031,
+        "fields": {
+            "question": 3010,
+            "text": "Just Spam / Marketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 9032,
+        "fields": {
+            "question": 3010,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is an impersonation scam. Official support teams do not DM users with threats of immediate deletion. The URL is clearly unaffiliated with Instagram."
+        }
+    }
+]

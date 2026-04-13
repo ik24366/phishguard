@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import VishingScenario from './VishingScenario';
+import SocialMediaScenario from './SocialMediaScenario';
 
 export default function TrainingModule({ highContrast, onNext, moduleId, onComplete, aiQuizData }) {
   // --- STATE MANAGEMENT ---
@@ -290,7 +290,8 @@ export default function TrainingModule({ highContrast, onNext, moduleId, onCompl
         <div style={{ ...cardBase, flex: '1 1 320px' }}>
           <h2 style={{ marginTop: 0, marginBottom: '12px', fontSize: '1.1rem', fontWeight: '600' }}>
             {currentQuestion.type?.toUpperCase() === 'VISHING' ? 'Voice Message' :
-              (currentQuestion.type?.toUpperCase() === 'SMS' ? 'SMS Message' : 'Email')}
+              currentQuestion.type?.toUpperCase() === 'SOCIAL' ? 'Social Media Post' :
+                currentQuestion.type?.toUpperCase() === 'SMS' ? 'SMS Message' : 'Email'}
           </h2>
 
           {currentQuestion.type?.toUpperCase() === 'VISHING' ? (
@@ -299,6 +300,13 @@ export default function TrainingModule({ highContrast, onNext, moduleId, onCompl
               audioSrc={currentQuestion.link_url || currentQuestion.linkurl}
               transcript={currentQuestion.body}
               highContrast={highContrast}
+            />
+          ) : currentQuestion.type?.toUpperCase() === 'SOCIAL' ? ( // ADDED SOCIAL MEDIA ROUTING
+            <SocialMediaScenario
+              sender={currentQuestion.sender}
+              subject={currentQuestion.subject}
+              body={currentQuestion.body}
+              linkUrl={currentQuestion.link_url || currentQuestion.linkurl}
             />
           ) : (
             <div style={{ fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'left', borderRadius: '8px', padding: '12px 14px', background: highContrast ? '#111' : '#f9fafb', border: `1px solid ${borderColor}` }}>

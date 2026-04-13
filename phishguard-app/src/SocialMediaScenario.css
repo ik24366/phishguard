@@ -1,0 +1,125 @@
+.social-scenario-container {
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.social-context-header {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.context-badge {
+    background-color: #e2e8f0;
+    color: #1a202c;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.social-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Distinct style if it's a Direct Message */
+.social-card.dm-style {
+    border: 2px solid #3182ce;
+    /* Blue border to mimic a chat bubble */
+    background-color: #f7fafc;
+}
+
+.social-profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.profile-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #4a5568;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.profile-name {
+    margin: 0;
+    font-size: 1rem;
+    color: #1a202c;
+    display: flex;
+    align-items: center;
+}
+
+.verified-badge {
+    background-color: #1da1f2;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    margin-left: 6px;
+}
+
+.post-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #2d3748;
+    /* High contrast dark gray */
+    margin: 0 0 12px 0;
+    white-space: pre-wrap;
+    /* Respects line breaks in your JSON */
+}
+
+.social-link-preview {
+    background-color: #edf2f7;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.suspicious-link {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 500;
+    word-break: break-all;
+    /* Prevents long URLs from breaking the layout */
+}
+
+.suspicious-link:hover {
+    text-decoration: underline;
+}
+
+.social-engagement-bar {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    color: #718096;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.action-button {
+    cursor: pointer;
+}
+
+.action-button:hover {
+    color: #1da1f2;
+}

@@ -4,7 +4,10 @@ import React, { useState, useEffect } from "react";
 export default function Dashboard({ highContrast, onStartTraining, completedModules = [] }) {
   const [modules, setModules] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [aiLoading, setAiLoading] = useState(false); // NEW: Track AI loading state
+  const [aiLoading, setAiLoading] = useState(false); //  Track AI loading state
+
+  const [aiVector, setAiVector] = useState("mixed");
+  const [aiDifficulty, setAiDifficulty] = useState("intermediate");
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/modules/")
@@ -26,10 +29,10 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
   const fetchAIQuiz = async () => {
     try {
       setAiLoading(true);
-      console.log("Fetching AI Quiz from Django...");
+      console.log(`Fetching AI Quiz from Django (Vector: ${aiVector}, Difficulty: ${aiDifficulty})...`);
 
-      // ADDED CACHE-BUSTING HEADERS HERE
-      const response = await fetch('http://localhost:8000/api/generate-ai-quiz/', {
+      // UPDATE THIS FETCH URL TO INCLUDE THE NEW VARIABLES
+      const response = await fetch(`http://localhost:8000/api/generate-ai-quiz/?vector=${aiVector}&difficulty=${aiDifficulty}`, {
         method: 'GET',
         headers: {
           'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -39,8 +42,8 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
       });
 
       if (!response.ok) throw new Error("Failed to generate AI quiz");
-
       const aiQuizData = await response.json();
+
 
       console.log("SUCCESS! Here is the AI data:", aiQuizData);
       alert("AI Quiz generated successfully! Check your browser console to see the JSON data. Wiring it to the training module is the next step!");
@@ -364,58 +367,126 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
             </div>
           </section>
 
-          {/* --- NEW: AI GENERATOR CARD --- */}
+          {/* --- NEW: EXPANDED AI GENERATOR CARD --- */}
           <section
             style={{
               ...cardBase,
-              border: highContrast ? `2px solid ${accentColor}` : `1.5px solid #8b5cf6`, // Purple border for AI
-              background: highContrast ? cardColor : "#f5f3ff", // Light purple background
+              border: `2px solid ${accentColor}`,
               display: "flex",
               flexDirection: "column",
+              flexGrow: 1, // This is the magic CSS that forces it to stretch down!
+              justifyContent: "space-between"
             }}
             aria-labelledby="ai-heading"
           >
-            <h2
-              id="ai-heading"
-              style={{
-                marginTop: 0,
-                marginBottom: "8px",
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                color: highContrast ? accentColor : "#6d28d9", // Dark purple text
-                display: "flex",
-                alignItems: "center",
-                gap: "8px"
-              }}
-            >
-              🤖 Adaptive AI Mode
-            </h2>
-            <p
-              style={{
-                marginTop: 0,
-                marginBottom: "16px",
-                fontSize: "0.96rem",
-                color: subtleText,
-              }}
-            >
-              Mastered the core modules? Challenge yourself with a dynamically generated, zero-day phishing scenario powered by our Generative AI Threat Engine.
-            </p>
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                <h2
+                  id="ai-heading"
+                  style={{
+                    margin: 0,
+                    fontSize: "1.25rem",
+                    fontWeight: 600,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px"
+                  }}
+                >
+                  <span role="img" aria-label="robot">🤖</span> Adaptive AI Threats
+                </h2>
+                <span style={{
+                  background: highContrast ? '#ff0' : '#e0e7ff',
+                  color: highContrast ? '#000' : '#3730a3',
+                  padding: '4px 10px',
+                  borderRadius: '999px',
+                  fontSize: '0.75rem',
+                  fontWeight: '700',
+                  letterSpacing: '0.5px'
+                }}>
+                  BETA
+                </span>
+              </div>
 
+              <p style={{ color: subtleText, fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '24px' }}>
+                Go beyond the basics. Our Generative AI engine creates zero-day, highly sophisticated phishing scenarios on the fly. No two simulations are ever the same.
+              </p>
+
+              {/* Middle Section: Configuration Options */}
+              <div style={{
+                background: highContrast ? '#111' : '#f8fafc',
+                borderRadius: '8px',
+                padding: '16px',
+                marginBottom: '24px',
+                border: `1px solid ${borderColor}`
+              }}>
+                <h3 style={{ fontSize: '0.9rem', fontWeight: '600', margin: '0 0 12px 0', color: textColor, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Configure Simulation
+                </h3>
+
+                {/* Option 1: Threat Vector */}
+                <div style={{ marginBottom: '16px' }}>
+                  <label htmlFor="threat-vector" style={{ display: 'block', fontSize: '0.85rem', color: subtleText, marginBottom: '6px', fontWeight: '500' }}>
+                    Target Vector
+                  </label>
+                  <select
+                    id="threat-vector"
+                    value={aiVector}
+                    onChange={(e) => setAiVector(e.target.value)}
+                    style={{
+                      width: '100%', padding: '10px', borderRadius: '6px',
+                      border: `1px solid ${borderColor}`, background: cardColor, color: textColor,
+                      fontSize: '0.95rem', cursor: 'pointer'
+                    }}
+                  >
+                    <option value="mixed">Mixed (All Vectors)</option>
+                    <option value="email">Corporate Email</option>
+                    <option value="sms">Mobile & SMS</option>
+                    <option value="social">Social Media</option>
+                  </select>
+                </div>
+
+                {/* Option 2: Difficulty */}
+                <div>
+                  <label htmlFor="difficulty" style={{ display: 'block', fontSize: '0.85rem', color: subtleText, marginBottom: '6px', fontWeight: '500' }}>
+                    Sophistication Level
+                  </label>
+                  <select
+                    id="difficulty"
+                    value={aiDifficulty}
+                    onChange={(e) => setAiDifficulty(e.target.value)}
+                    style={{
+                      width: '100%', padding: '10px', borderRadius: '6px',
+                      border: `1px solid ${borderColor}`, background: cardColor, color: textColor,
+                      fontSize: '0.95rem', cursor: 'pointer'
+                    }}
+                  >
+                    <option value="intermediate">Intermediate (Standard)</option>
+                    <option value="advanced">Advanced (Spear-Phishing)</option>
+                    <option value="expert">Expert (Zero-Day Exploits)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Section: Generate Button */}
             <button
               style={{
                 ...pillButton,
-                background: aiLoading ? "#a78bfa" : "#7c3aed", // Purple button
-                color: "#fff",
+                background: accentColor,
+                color: highContrast ? "#000" : "#fff",
                 border: "none",
-                padding: "12px 20px",
+                padding: "16px",
                 width: "100%",
-                marginTop: "auto"
+                fontSize: "1.05rem",
+                marginTop: "auto",
+                cursor: aiLoading ? "not-allowed" : "pointer",
+                opacity: aiLoading ? 0.7 : 1,
               }}
               onClick={fetchAIQuiz}
               disabled={aiLoading}
               aria-label="Generate an AI Phishing Scenario"
             >
-              {aiLoading ? "Generating Threat..." : "Play AI Scenario"}
+              {aiLoading ? "Generating Zero-Day Threat..." : "⚡ Generate AI Scenario"}
             </button>
           </section>
         </div>

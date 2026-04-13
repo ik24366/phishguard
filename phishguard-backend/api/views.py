@@ -13,7 +13,7 @@ from openai import OpenAI
 
 # Initialize the OpenAI client. 
 # REPLACE THIS WITH YOUR NEW API KEY!
-client = OpenAI(api_key="...")
+client = OpenAI(api_key="[ENCRYPTION_KEY]")
 
 @api_view(["GET"])
 def get_quizzes(request):
@@ -55,17 +55,38 @@ def get_quiz_by_id(request, pk):
 @api_view(['POST', 'GET'])
 def generate_ai_quiz(request):
     try:
-        # We removed the hardcoded 'themes' list!
-        # Now, we are telling the AI to invent its own scenarios completely from scratch.
+        # 1. Catch the variables React sent us (Default to mixed/intermediate if empty)
+        vector = request.GET.get('vector', 'mixed')
+        difficulty = request.GET.get('difficulty', 'intermediate')
         
+        # 2. Create custom instructions based on the user's choices!
+        vector_instruction = "Mix the scenarios across Email, SMS, and Social Media."
+        if vector == "email":
+            vector_instruction = "ALL 5 scenarios MUST be corporate or university Emails."
+        elif vector == "sms":
+            vector_instruction = "ALL 5 scenarios MUST be Mobile SMS text messages (Smishing)."
+        elif vector == "social":
+            vector_instruction = "ALL 5 scenarios MUST be Social Media interactions (Twitter, LinkedIn, Instagram DMs)."
+            
+        difficulty_instruction = "Make the attacks standard, easily recognizable phishing attempts."
+        if difficulty == "advanced":
+            difficulty_instruction = "Make the attacks highly sophisticated spear-phishing targeting specific university departments or corporate roles. Use subtle psychological manipulation."
+        elif difficulty == "expert":
+            difficulty_instruction = "Make the attacks incredibly complex Zero-Day exploits. Use zero grammatical errors, perfect corporate tone, advanced typosquatting, and multi-stage social engineering. Make it very hard for the user to detect."
+
+        # 3. Send those custom instructions to OpenAI
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {
                     "role": "system",
-                    "content": """You are an expert cybersecurity training engine. 
-                    Generate EXACTLY 5 highly realistic, completely unique, and modern scenarios for university students or young professionals.
-                    Mix the scenarios: make 3 of them phishing, and 2 of them completely legitimate emails or SMS messages.
+                    "content": f"""You are an expert cybersecurity training engine. 
+                    Generate EXACTLY 5 highly realistic, completely unique, and modern scenarios.
+                    Make 3 of them phishing, and 2 of them completely legitimate.
+                    
+                    USER CONFIGURATION:
+                    - Vector Rule: {vector_instruction}
+                    - Difficulty Rule: {difficulty_instruction}
                     
                     CRITICAL: Do NOT use placeholders like [Malicious Link]. You MUST invent a highly realistic, clickable URL string (e.g., 'https://secure-login-portal.net/auth' or 'https://tudublin.ie/student-hub').
                     
@@ -74,20 +95,20 @@ def generate_ai_quiz(request):
                     You MUST return ONLY a raw JSON array containing exactly 5 objects. No markdown, no intro text.
                     Use this EXACT structure for the array:
                     [
-                        {
-                            "type": "EMAIL", // or "SMS"
-                            "sender": "The sender name and email/number",
+                        {{
+                            "type": "EMAIL", // or "SMS" or "SOCIAL"
+                            "sender": "The sender name and email/number/handle",
                             "subject": "The subject line (leave blank if SMS)",
-                            "body": "The email or SMS body content with the realistic URL included.",
+                            "body": "The body content with the realistic URL included.",
                             "is_phishing": true, 
                             "feedback_text": "Explain exactly why this is phishing or why it is safe."
-                        }
+                        }}
                     ]"""
                 }
             ],
-            temperature=1.0, # Bumped up to 1.0 for MAXIMUM creativity and variance!
+            temperature=1.0, 
         )
-
+        
         ai_content = response.choices[0].message.content
         
         if ai_content.startswith("```json"):

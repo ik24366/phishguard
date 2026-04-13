@@ -27,7 +27,16 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
     try {
       setAiLoading(true);
       console.log("Fetching AI Quiz from Django...");
-      const response = await fetch('http://localhost:8000/api/generate-ai-quiz/');
+
+      // ADDED CACHE-BUSTING HEADERS HERE
+      const response = await fetch('http://localhost:8000/api/generate-ai-quiz/', {
+        method: 'GET',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
 
       if (!response.ok) throw new Error("Failed to generate AI quiz");
 

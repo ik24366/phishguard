@@ -1,0 +1,2152 @@
+[
+    {
+        "model": "api.question",
+        "pk": 1017,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Microsoft Tech Support (Unknown Number)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is Microsoft Windows Support. We are detecting a severe virus originating from your IP address. Please hold the line to connect with a certified technician.",
+            "link_url": "/audio/techscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3051,
+        "fields": {
+            "question": 1017,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3052,
+        "fields": {
+            "question": 1017,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3053,
+        "fields": {
+            "question": 1017,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1028,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Delivery Driver (087 999 8888)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi, this is the DPD driver. I'm outside your building but the gate is locked. Could you pop down or give me the entry code? Thanks.",
+            "link_url": "/audio/delivery_driver.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3084,
+        "fields": {
+            "question": 1028,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3085,
+        "fields": {
+            "question": 1028,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3086,
+        "fields": {
+            "question": 1028,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1036,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Local Pharmacy (086 111 2222)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi there, this is a message from your local pharmacy. Your prescription is now ready for collection during our normal opening hours.",
+            "link_url": "/audio/pharmacy_ready.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3108,
+        "fields": {
+            "question": 1036,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3109,
+        "fields": {
+            "question": 1036,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3110,
+        "fields": {
+            "question": 1036,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1014,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Amazon Security (083 444 5555)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, your Amazon account has a pending charge of \u20ac899 for a new iPhone. If you did not authorize this purchase, press 1 now to connect to the fraud department.",
+            "link_url": "/audio/amazonscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3042,
+        "fields": {
+            "question": 1014,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3043,
+        "fields": {
+            "question": 1014,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3044,
+        "fields": {
+            "question": 1014,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1039,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "University Health Center (01 555 4444)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is the Health Center. We are calling to confirm your flu vaccination appointment on Thursday. No action is required unless you need to cancel.",
+            "link_url": "/audio/vaccine_confirm.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3117,
+        "fields": {
+            "question": 1039,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3118,
+        "fields": {
+            "question": 1039,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3119,
+        "fields": {
+            "question": 1039,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1016,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Revenue Commissioners (01 738 3636)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a final notice from Revenue. There is an outstanding tax warrant under your name. To avoid immediate arrest, press 2 to arrange a payment.",
+            "link_url": "/audio/taxscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3048,
+        "fields": {
+            "question": 1016,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3049,
+        "fields": {
+            "question": 1016,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3050,
+        "fields": {
+            "question": 1016,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1009,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Amazon Security (083 444 5555)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, your Amazon account has a pending charge of \u20ac899 for a new iPhone. If you did not authorize this purchase, press 1 now to connect to the fraud department.",
+            "link_url": "/audio/amazonscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3027,
+        "fields": {
+            "question": 1009,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3028,
+        "fields": {
+            "question": 1009,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3029,
+        "fields": {
+            "question": 1009,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1041,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Local Pharmacy (086 111 2222)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi there, this is a message from your local pharmacy. Your prescription is now ready for collection during our normal opening hours.",
+            "link_url": "/audio/pharmacy_ready.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3123,
+        "fields": {
+            "question": 1041,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3124,
+        "fields": {
+            "question": 1041,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3125,
+        "fields": {
+            "question": 1041,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1044,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "University Health Center (01 555 4444)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is the Health Center. We are calling to confirm your flu vaccination appointment on Thursday. No action is required unless you need to cancel.",
+            "link_url": "/audio/vaccine_confirm.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3132,
+        "fields": {
+            "question": 1044,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3133,
+        "fields": {
+            "question": 1044,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3134,
+        "fields": {
+            "question": 1044,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1005,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Bank of Ireland (087 123 4567)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated message from Bank of Ireland. Suspicious activity has been detected on your account. Press 1 to speak with a representative and verify your PIN.",
+            "link_url": "/audio/bankscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3015,
+        "fields": {
+            "question": 1005,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3016,
+        "fields": {
+            "question": 1005,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3017,
+        "fields": {
+            "question": 1005,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1006,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Revenue Commissioners (01 738 3636)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a final notice from Revenue. There is an outstanding tax warrant under your name. To avoid immediate arrest, press 2 to arrange a payment.",
+            "link_url": "/audio/taxscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3018,
+        "fields": {
+            "question": 1006,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3019,
+        "fields": {
+            "question": 1006,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3020,
+        "fields": {
+            "question": 1006,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1032,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Library Services (01 987 6543)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a courtesy call from the university library. The book you requested is now available at the hold desk. It will be held for 48 hours.",
+            "link_url": "/audio/library_hold.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3096,
+        "fields": {
+            "question": 1032,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3097,
+        "fields": {
+            "question": 1032,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3098,
+        "fields": {
+            "question": 1032,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1003,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "An Garda S\u00edoch\u00e1na (+353 85 999 1111)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated call from the National Police. Your National Insurance number has been compromised and linked to illegal activity. Press 1 to speak to an officer.",
+            "link_url": "/audio/gardascam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3009,
+        "fields": {
+            "question": 1003,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3010,
+        "fields": {
+            "question": 1003,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3011,
+        "fields": {
+            "question": 1003,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1031,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Local Pharmacy (086 111 2222)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi there, this is a message from your local pharmacy. Your prescription is now ready for collection during our normal opening hours.",
+            "link_url": "/audio/pharmacy_ready.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3093,
+        "fields": {
+            "question": 1031,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3094,
+        "fields": {
+            "question": 1031,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3095,
+        "fields": {
+            "question": 1031,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1015,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Bank of Ireland (087 123 4567)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated message from Bank of Ireland. Suspicious activity has been detected on your account. Press 1 to speak with a representative and verify your PIN.",
+            "link_url": "/audio/bankscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3045,
+        "fields": {
+            "question": 1015,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3046,
+        "fields": {
+            "question": 1015,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3047,
+        "fields": {
+            "question": 1015,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1042,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Library Services (01 987 6543)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a courtesy call from the university library. The book you requested is now available at the hold desk. It will be held for 48 hours.",
+            "link_url": "/audio/library_hold.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3126,
+        "fields": {
+            "question": 1042,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3127,
+        "fields": {
+            "question": 1042,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3128,
+        "fields": {
+            "question": 1042,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1001,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Revenue Commissioners (01 738 3636)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a final notice from Revenue. There is an outstanding tax warrant under your name. To avoid immediate arrest, press 2 to arrange a payment.",
+            "link_url": "/audio/taxscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3003,
+        "fields": {
+            "question": 1001,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3004,
+        "fields": {
+            "question": 1001,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3005,
+        "fields": {
+            "question": 1001,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1010,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Bank of Ireland (087 123 4567)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated message from Bank of Ireland. Suspicious activity has been detected on your account. Press 1 to speak with a representative and verify your PIN.",
+            "link_url": "/audio/bankscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3030,
+        "fields": {
+            "question": 1010,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3031,
+        "fields": {
+            "question": 1010,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3032,
+        "fields": {
+            "question": 1010,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1018,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "An Garda S\u00edoch\u00e1na (+353 85 999 1111)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated call from the National Police. Your National Insurance number has been compromised and linked to illegal activity. Press 1 to speak to an officer.",
+            "link_url": "/audio/gardascam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3054,
+        "fields": {
+            "question": 1018,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3055,
+        "fields": {
+            "question": 1018,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3056,
+        "fields": {
+            "question": 1018,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1026,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Local Pharmacy (086 111 2222)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi there, this is a message from your local pharmacy. Your prescription is now ready for collection during our normal opening hours.",
+            "link_url": "/audio/pharmacy_ready.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3078,
+        "fields": {
+            "question": 1026,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3079,
+        "fields": {
+            "question": 1026,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3080,
+        "fields": {
+            "question": 1026,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1046,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Local Pharmacy (086 111 2222)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi there, this is a message from your local pharmacy. Your prescription is now ready for collection during our normal opening hours.",
+            "link_url": "/audio/pharmacy_ready.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3138,
+        "fields": {
+            "question": 1046,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3139,
+        "fields": {
+            "question": 1046,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3140,
+        "fields": {
+            "question": 1046,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Prescription collection notice). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1004,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Amazon Security (083 444 5555)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, your Amazon account has a pending charge of \u20ac899 for a new iPhone. If you did not authorize this purchase, press 1 now to connect to the fraud department.",
+            "link_url": "/audio/amazonscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3012,
+        "fields": {
+            "question": 1004,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3013,
+        "fields": {
+            "question": 1004,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3014,
+        "fields": {
+            "question": 1004,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1027,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Library Services (01 987 6543)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a courtesy call from the university library. The book you requested is now available at the hold desk. It will be held for 48 hours.",
+            "link_url": "/audio/library_hold.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3081,
+        "fields": {
+            "question": 1027,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3082,
+        "fields": {
+            "question": 1027,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3083,
+        "fields": {
+            "question": 1027,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1045,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Dr. Smith's Dental Clinic (01 234 5678)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is an automated reminder for your dental appointment tomorrow at 2:30 PM. Please reply to the SMS we sent if you need to reschedule. Thank you.",
+            "link_url": "/audio/dental_reminder.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3135,
+        "fields": {
+            "question": 1045,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3136,
+        "fields": {
+            "question": 1045,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3137,
+        "fields": {
+            "question": 1045,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1040,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Dr. Smith's Dental Clinic (01 234 5678)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is an automated reminder for your dental appointment tomorrow at 2:30 PM. Please reply to the SMS we sent if you need to reschedule. Thank you.",
+            "link_url": "/audio/dental_reminder.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3120,
+        "fields": {
+            "question": 1040,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3121,
+        "fields": {
+            "question": 1040,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3122,
+        "fields": {
+            "question": 1040,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1030,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Dr. Smith's Dental Clinic (01 234 5678)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is an automated reminder for your dental appointment tomorrow at 2:30 PM. Please reply to the SMS we sent if you need to reschedule. Thank you.",
+            "link_url": "/audio/dental_reminder.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3090,
+        "fields": {
+            "question": 1030,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3091,
+        "fields": {
+            "question": 1030,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3092,
+        "fields": {
+            "question": 1030,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1007,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Microsoft Tech Support (Unknown Number)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is Microsoft Windows Support. We are detecting a severe virus originating from your IP address. Please hold the line to connect with a certified technician.",
+            "link_url": "/audio/techscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3021,
+        "fields": {
+            "question": 1007,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3022,
+        "fields": {
+            "question": 1007,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3023,
+        "fields": {
+            "question": 1007,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1012,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Microsoft Tech Support (Unknown Number)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is Microsoft Windows Support. We are detecting a severe virus originating from your IP address. Please hold the line to connect with a certified technician.",
+            "link_url": "/audio/techscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3036,
+        "fields": {
+            "question": 1012,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3037,
+        "fields": {
+            "question": 1012,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3038,
+        "fields": {
+            "question": 1012,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1025,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Dr. Smith's Dental Clinic (01 234 5678)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is an automated reminder for your dental appointment tomorrow at 2:30 PM. Please reply to the SMS we sent if you need to reschedule. Thank you.",
+            "link_url": "/audio/dental_reminder.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3075,
+        "fields": {
+            "question": 1025,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3076,
+        "fields": {
+            "question": 1025,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3077,
+        "fields": {
+            "question": 1025,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1035,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Dr. Smith's Dental Clinic (01 234 5678)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is an automated reminder for your dental appointment tomorrow at 2:30 PM. Please reply to the SMS we sent if you need to reschedule. Thank you.",
+            "link_url": "/audio/dental_reminder.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3105,
+        "fields": {
+            "question": 1035,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3106,
+        "fields": {
+            "question": 1035,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3107,
+        "fields": {
+            "question": 1035,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Routine appointment reminder). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1022,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Microsoft Tech Support (Unknown Number)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is Microsoft Windows Support. We are detecting a severe virus originating from your IP address. Please hold the line to connect with a certified technician.",
+            "link_url": "/audio/techscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3066,
+        "fields": {
+            "question": 1022,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3067,
+        "fields": {
+            "question": 1022,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3068,
+        "fields": {
+            "question": 1022,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1038,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Delivery Driver (087 999 8888)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi, this is the DPD driver. I'm outside your building but the gate is locked. Could you pop down or give me the entry code? Thanks.",
+            "link_url": "/audio/delivery_driver.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3114,
+        "fields": {
+            "question": 1038,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3115,
+        "fields": {
+            "question": 1038,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3116,
+        "fields": {
+            "question": 1038,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1000,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Bank of Ireland (087 123 4567)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated message from Bank of Ireland. Suspicious activity has been detected on your account. Press 1 to speak with a representative and verify your PIN.",
+            "link_url": "/audio/bankscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3000,
+        "fields": {
+            "question": 1000,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3001,
+        "fields": {
+            "question": 1000,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3002,
+        "fields": {
+            "question": 1000,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1021,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Revenue Commissioners (01 738 3636)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a final notice from Revenue. There is an outstanding tax warrant under your name. To avoid immediate arrest, press 2 to arrange a payment.",
+            "link_url": "/audio/taxscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3063,
+        "fields": {
+            "question": 1021,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3064,
+        "fields": {
+            "question": 1021,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3065,
+        "fields": {
+            "question": 1021,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1037,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Library Services (01 987 6543)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a courtesy call from the university library. The book you requested is now available at the hold desk. It will be held for 48 hours.",
+            "link_url": "/audio/library_hold.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3111,
+        "fields": {
+            "question": 1037,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3112,
+        "fields": {
+            "question": 1037,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3113,
+        "fields": {
+            "question": 1037,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1034,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "University Health Center (01 555 4444)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is the Health Center. We are calling to confirm your flu vaccination appointment on Thursday. No action is required unless you need to cancel.",
+            "link_url": "/audio/vaccine_confirm.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3102,
+        "fields": {
+            "question": 1034,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3103,
+        "fields": {
+            "question": 1034,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3104,
+        "fields": {
+            "question": 1034,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1047,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Library Services (01 987 6543)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a courtesy call from the university library. The book you requested is now available at the hold desk. It will be held for 48 hours.",
+            "link_url": "/audio/library_hold.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3141,
+        "fields": {
+            "question": 1047,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3142,
+        "fields": {
+            "question": 1047,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3143,
+        "fields": {
+            "question": 1047,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Library hold notification). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1048,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Delivery Driver (087 999 8888)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi, this is the DPD driver. I'm outside your building but the gate is locked. Could you pop down or give me the entry code? Thanks.",
+            "link_url": "/audio/delivery_driver.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3144,
+        "fields": {
+            "question": 1048,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3145,
+        "fields": {
+            "question": 1048,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3146,
+        "fields": {
+            "question": 1048,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1019,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Amazon Security (083 444 5555)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, your Amazon account has a pending charge of \u20ac899 for a new iPhone. If you did not authorize this purchase, press 1 now to connect to the fraud department.",
+            "link_url": "/audio/amazonscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3057,
+        "fields": {
+            "question": 1019,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3058,
+        "fields": {
+            "question": 1019,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3059,
+        "fields": {
+            "question": 1019,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1024,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Amazon Security (083 444 5555)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, your Amazon account has a pending charge of \u20ac899 for a new iPhone. If you did not authorize this purchase, press 1 now to connect to the fraud department.",
+            "link_url": "/audio/amazonscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3072,
+        "fields": {
+            "question": 1024,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3073,
+        "fields": {
+            "question": 1024,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3074,
+        "fields": {
+            "question": 1024,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Amazon pending charge scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1023,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "An Garda S\u00edoch\u00e1na (+353 85 999 1111)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated call from the National Police. Your National Insurance number has been compromised and linked to illegal activity. Press 1 to speak to an officer.",
+            "link_url": "/audio/gardascam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3069,
+        "fields": {
+            "question": 1023,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3070,
+        "fields": {
+            "question": 1023,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3071,
+        "fields": {
+            "question": 1023,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1033,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Delivery Driver (087 999 8888)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi, this is the DPD driver. I'm outside your building but the gate is locked. Could you pop down or give me the entry code? Thanks.",
+            "link_url": "/audio/delivery_driver.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3099,
+        "fields": {
+            "question": 1033,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3100,
+        "fields": {
+            "question": 1033,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3101,
+        "fields": {
+            "question": 1033,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1002,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Microsoft Tech Support (Unknown Number)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is Microsoft Windows Support. We are detecting a severe virus originating from your IP address. Please hold the line to connect with a certified technician.",
+            "link_url": "/audio/techscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3006,
+        "fields": {
+            "question": 1002,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3007,
+        "fields": {
+            "question": 1002,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3008,
+        "fields": {
+            "question": 1002,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tech support virus scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1043,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Delivery Driver (087 999 8888)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hi, this is the DPD driver. I'm outside your building but the gate is locked. Could you pop down or give me the entry code? Thanks.",
+            "link_url": "/audio/delivery_driver.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3129,
+        "fields": {
+            "question": 1043,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3130,
+        "fields": {
+            "question": 1043,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3131,
+        "fields": {
+            "question": 1043,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Legitimate delivery driver call). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1008,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "An Garda S\u00edoch\u00e1na (+353 85 999 1111)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated call from the National Police. Your National Insurance number has been compromised and linked to illegal activity. Press 1 to speak to an officer.",
+            "link_url": "/audio/gardascam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3024,
+        "fields": {
+            "question": 1008,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3025,
+        "fields": {
+            "question": 1008,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3026,
+        "fields": {
+            "question": 1008,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1011,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Revenue Commissioners (01 738 3636)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is a final notice from Revenue. There is an outstanding tax warrant under your name. To avoid immediate arrest, press 2 to arrange a payment.",
+            "link_url": "/audio/taxscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3033,
+        "fields": {
+            "question": 1011,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3034,
+        "fields": {
+            "question": 1011,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3035,
+        "fields": {
+            "question": 1011,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Tax/Revenue warrant scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1020,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "Bank of Ireland (087 123 4567)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated message from Bank of Ireland. Suspicious activity has been detected on your account. Press 1 to speak with a representative and verify your PIN.",
+            "link_url": "/audio/bankscam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3060,
+        "fields": {
+            "question": 1020,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3061,
+        "fields": {
+            "question": 1020,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3062,
+        "fields": {
+            "question": 1020,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Bank fraud alert scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1013,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "An Garda S\u00edoch\u00e1na (+353 85 999 1111)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "This is an automated call from the National Police. Your National Insurance number has been compromised and linked to illegal activity. Press 1 to speak to an officer.",
+            "link_url": "/audio/gardascam1.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3039,
+        "fields": {
+            "question": 1013,
+            "text": "Definitely Phishing",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3040,
+        "fields": {
+            "question": 1013,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3041,
+        "fields": {
+            "question": 1013,
+            "text": "Safe / Legitimate",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a malicious phishing attempt (Police/National Insurance scam). Legitimate organizations like banks, police, or tech support will never call you out of the blue and ask you to 'press 1' to resolve a severe issue or verify your PIN. This creates a false sense of extreme urgency."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1049,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "University Health Center (01 555 4444)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is the Health Center. We are calling to confirm your flu vaccination appointment on Thursday. No action is required unless you need to cancel.",
+            "link_url": "/audio/vaccine_confirm.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3147,
+        "fields": {
+            "question": 1049,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3148,
+        "fields": {
+            "question": 1049,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3149,
+        "fields": {
+            "question": 1049,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.question",
+        "pk": 1029,
+        "fields": {
+            "module": 3,
+            "type": "VISHING",
+            "prompt_text": "Is this a phishing attempt?",
+            "sender": "University Health Center (01 555 4444)",
+            "subject": "Listen to the voicemail below or read the transcript. Is this a legitimate call?",
+            "body": "Hello, this is the Health Center. We are calling to confirm your flu vaccination appointment on Thursday. No action is required unless you need to cancel.",
+            "link_url": "/audio/vaccine_confirm.mp3"
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3087,
+        "fields": {
+            "question": 1029,
+            "text": "Definitely Phishing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3088,
+        "fields": {
+            "question": 1029,
+            "text": "Spam / Telemarketing",
+            "is_correct": false,
+            "feedback_text": "Incorrect. This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    },
+    {
+        "model": "api.choice",
+        "pk": 3089,
+        "fields": {
+            "question": 1029,
+            "text": "Safe / Legitimate",
+            "is_correct": true,
+            "feedback_text": "Correct! This is a legitimate automated call (Health center confirmation). Notice that it is only providing information (like a reminder) and is NOT asking for sensitive information, payments, or demanding immediate action to avoid a penalty."
+        }
+    }
+]

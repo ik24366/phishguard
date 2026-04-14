@@ -58,6 +58,9 @@ class Choice(models.Model):
 
 # 5) USER PROGRESS
 class UserModuleProgress(models.Model):
+    streak_count = models.IntegerField(default=0)
+    level = models.IntegerField(default=1)
+    total_score = models.IntegerField(default=0)
     user = models.ForeignKey(User, related_name='module_progress',
                              on_delete=models.CASCADE)
     module = models.ForeignKey(Module, on_delete=models.CASCADE)

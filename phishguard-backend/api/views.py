@@ -13,7 +13,7 @@ from openai import OpenAI
 
 # Initialize the OpenAI client. 
 # REPLACE THIS WITH YOUR NEW API KEY!
-client = OpenAI(api_key="[ENCRYPTION_KEY]")
+client = OpenAI(api_key="...")
 
 @api_view(["GET"])
 def get_quizzes(request):

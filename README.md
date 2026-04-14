@@ -61,4 +61,4 @@ npm start
 
 ---
 
-> **Academic Context:** This repository contains the source code for a University Final Year Project evaluating the efficacy of adaptive AI and accessibility guidelines in security awareness training.
+

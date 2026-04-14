@@ -3,6 +3,7 @@
 PhishGuard is an advanced, accessible cybersecurity awareness platform built as a Final Year Project. It utilizes a gamified learning methodology and an OpenAI-powered Generative Engine to create zero-day phishing simulations on the fly. 
 
 **[🖼️ View Project Poster](./OtherDocs/phishguardposter.pdf)**
+<img width="3179" height="4494" alt="posterimg" src="https://github.com/user-attachments/assets/3efbab9e-0289-439f-b59c-ac005be81d3d" />
 
 ---
 

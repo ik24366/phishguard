@@ -22,7 +22,7 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
         console.error("Failed to load modules:", err);
       });
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("phishguard_token");
     fetch("http://127.0.0.1:8000/api/user-stats/", {
       headers: {
         "Authorization": `Token ${token}`

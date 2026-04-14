@@ -140,7 +140,7 @@ export default function TrainingModule({ highContrast, onNext, moduleId, onCompl
     }
   };
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("phishguard_token");
   const handleFinishModule = async () => {
     if (moduleId !== "AI") {
       try {

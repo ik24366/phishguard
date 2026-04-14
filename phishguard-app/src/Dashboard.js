@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-// NEW: Add completedModules to props
 export default function Dashboard({ highContrast, onStartTraining, completedModules = [] }) {
   const [modules, setModules] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [aiLoading, setAiLoading] = useState(false); //  Track AI loading state
+  const [aiLoading, setAiLoading] = useState(false);
+  const [userStats, setUserStats] = useState({ level: 1, streak: 0, score: 0 });
 
   const [aiVector, setAiVector] = useState("mixed");
   const [aiDifficulty, setAiDifficulty] = useState("intermediate");
@@ -17,40 +17,55 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
       })
       .then((data) => {
         setModules(data);
-        setLoading(false);
       })
       .catch((err) => {
         console.error("Failed to load modules:", err);
+      });
+
+    const token = localStorage.getItem("token");
+    fetch("http://127.0.0.1:8000/api/user-stats/", {
+      headers: {
+        "Authorization": `Token ${token}`
+      }
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load user stats");
+        return res.json();
+      })
+      .then((data) => {
+        setUserStats({
+          level: data.level ?? 1,
+          streak: data.streak ?? 0,
+          score: data.score ?? 0,
+        });
+      })
+      .catch((err) => {
+        console.error("Failed to load user stats:", err);
+        setUserStats({ level: 1, streak: 0, score: 0 });
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, []);
 
-  // --- NEW: AI Fetch Function ---
   const fetchAIQuiz = async () => {
     try {
       setAiLoading(true);
-      console.log(`Fetching AI Quiz from Django (Vector: ${aiVector}, Difficulty: ${aiDifficulty})...`);
-
-      // UPDATE THIS FETCH URL TO INCLUDE THE NEW VARIABLES
-      const response = await fetch(`http://localhost:8000/api/generate-ai-quiz/?vector=${aiVector}&difficulty=${aiDifficulty}`, {
-        method: 'GET',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
+      const response = await fetch(
+        `http://localhost:8000/api/generate-ai-quiz/?vector=${aiVector}&difficulty=${aiDifficulty}`,
+        {
+          method: "GET",
+          headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            Pragma: "no-cache",
+            Expires: "0",
+          },
         }
-      });
+      );
 
       if (!response.ok) throw new Error("Failed to generate AI quiz");
       const aiQuizData = await response.json();
-
-
-      console.log("SUCCESS! Here is the AI data:", aiQuizData);
-      alert("AI Quiz generated successfully! Check your browser console to see the JSON data. Wiring it to the training module is the next step!");
-
-      // Next Step: You will pass this to your TrainingModule component
       onStartTraining("AI", aiQuizData);
-
     } catch (error) {
       console.error("Failed to fetch AI Quiz:", error);
       alert("Failed to generate AI Quiz. Check your Django terminal for errors.");
@@ -58,7 +73,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
       setAiLoading(false);
     }
   };
-
 
   const backgroundColor = highContrast ? "#222" : "#f5f7fb";
   const cardColor = highContrast ? "#333" : "#fff";
@@ -72,9 +86,7 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
     border: `1.5px solid ${borderColor}`,
     borderRadius: "12px",
     padding: "24px 28px",
-    boxShadow: highContrast
-      ? "none"
-      : "0 8px 16px rgba(15, 23, 42, 0.06)",
+    boxShadow: highContrast ? "none" : "0 8px 16px rgba(15, 23, 42, 0.06)",
   };
 
   const pillButton = {
@@ -86,16 +98,12 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
     fontSize: "0.98rem",
   };
 
-
-  // --- Calculate Progress ---
   const totalModules = modules.length;
-  // Ensure we don't count completed modules that might have been deleted from the database
-  const validCompletedCount = completedModules.filter(id =>
-    modules.some(mod => mod.id === id)
+  const validCompletedCount = completedModules.filter((id) =>
+    modules.some((mod) => mod.id === id)
   ).length;
-
-  // Calculate percentage (avoid dividing by zero)
-  const progressPercentage = totalModules === 0 ? 0 : Math.round((validCompletedCount / totalModules) * 100);
+  const progressPercentage =
+    totalModules === 0 ? 0 : Math.round((validCompletedCount / totalModules) * 100);
 
   return (
     <div
@@ -110,7 +118,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
         padding: "32px 16px 48px",
       }}
     >
-      {/* Header */}
       <header
         style={{
           width: "100%",
@@ -139,7 +146,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
         </p>
       </header>
 
-      {/* Top bar (nav / quick info) */}
       <nav
         style={{
           ...cardBase,
@@ -159,11 +165,10 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
             color: subtleText,
           }}
         >
-          Last login: <strong>Today</strong>
+          Lv. {userStats.level} | 🔥 {userStats.streak}d streak
         </div>
       </nav>
 
-      {/* Main content: 2 columns */}
       <main
         style={{
           display: "flex",
@@ -173,7 +178,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
           maxWidth: "1100px",
         }}
       >
-        {/* Left column */}
         <div
           style={{
             flex: "1 1 320px",
@@ -182,7 +186,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
             gap: "24px",
           }}
         >
-          {/* Welcome card */}
           <section
             style={{
               ...cardBase,
@@ -199,8 +202,39 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                 fontWeight: 600,
               }}
             >
-              Welcome back
+              Welcome back, Gamemaster!
             </h2>
+
+            <div
+              style={{
+                display: "flex",
+                gap: "20px",
+                margin: "16px 0",
+                flexWrap: "wrap",
+              }}
+            >
+              <div style={{ textAlign: "center", minWidth: "90px" }}>
+                <div style={{ fontSize: "2rem", fontWeight: "bold", color: accentColor }}>
+                  Lv. {userStats.level}
+                </div>
+                <div style={{ fontSize: "0.85rem", color: subtleText }}>LEVEL</div>
+              </div>
+
+              <div style={{ textAlign: "center", minWidth: "90px" }}>
+                <div style={{ fontSize: "2rem", fontWeight: "bold", color: "#f59e0b" }}>
+                  🔥 {userStats.streak}
+                </div>
+                <div style={{ fontSize: "0.85rem", color: subtleText }}>DAY STREAK</div>
+              </div>
+
+              <div style={{ textAlign: "center", minWidth: "90px" }}>
+                <div style={{ fontSize: "2rem", fontWeight: "bold", color: "#10b981" }}>
+                  {userStats.score}
+                </div>
+                <div style={{ fontSize: "0.85rem", color: subtleText }}>TOTAL SCORE</div>
+              </div>
+            </div>
+
             <p
               style={{
                 margin: 0,
@@ -209,13 +243,10 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                 lineHeight: 1.6,
               }}
             >
-              Continue your phishing awareness journey with short, focused
-              training modules. Your progress and feedback help you build
-              safer online habits over time.
+              Continue building safer habits.
             </p>
           </section>
 
-          {/* DYNAMIC TRAINING MODULES LIST */}
           <section
             style={{
               ...cardBase,
@@ -234,7 +265,7 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                 fontWeight: 600,
               }}
             >
-              Available Training Modules
+              Training Modules
             </h2>
 
             {loading ? (
@@ -244,7 +275,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "12px" }}>
                 {modules.map((mod) => {
-                  // Check if this module is completed
                   const isCompleted = completedModules.includes(mod.id);
 
                   return (
@@ -257,29 +287,50 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "center",
-                        background: highContrast ? "#222" : "#f9fafb"
+                        background: highContrast ? "#222" : "#f9fafb",
                       }}
                     >
-                      <div>
-                        <h3 style={{ margin: "0 0 4px 0", fontSize: "1.05rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                      <div style={{ paddingRight: "12px" }}>
+                        <h3
+                          style={{
+                            margin: "0 0 4px 0",
+                            fontSize: "1.05rem",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}
+                        >
                           {mod.title}
                           {isCompleted && (
-                            <span style={{ color: "green", fontSize: "1.2rem" }} title="Completed">✓</span>
+                            <span style={{ color: "green", fontSize: "1.2rem" }} title="Completed">
+                              ✓
+                            </span>
                           )}
                         </h3>
                         <p style={{ margin: 0, fontSize: "0.9rem", color: subtleText }}>
                           {mod.description || "Learn to identify threats in this scenario."}
                         </p>
                       </div>
+
                       <button
                         style={{
                           ...pillButton,
-                          background: isCompleted ? (highContrast ? "#444" : "#e5e7eb") : accentColor,
-                          color: isCompleted ? (highContrast ? "#fff" : "#4b5563") : (highContrast ? "#000" : "#fff"),
+                          background: isCompleted
+                            ? highContrast
+                              ? "#444"
+                              : "#e5e7eb"
+                            : accentColor,
+                          color: isCompleted
+                            ? highContrast
+                              ? "#fff"
+                              : "#4b5563"
+                            : highContrast
+                              ? "#000"
+                              : "#fff",
                           border: isCompleted ? "none" : `1px solid ${borderColor}`,
                           padding: "8px 20px",
                           whiteSpace: "nowrap",
-                          marginLeft: "16px"
+                          marginLeft: "16px",
                         }}
                         onClick={() => onStartTraining(mod.id)}
                         aria-label={`${isCompleted ? "Retake" : "Start"} ${mod.title} training`}
@@ -294,7 +345,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
           </section>
         </div>
 
-        {/* Right column: Progress & AI Mode */}
         <div
           style={{
             flex: "1 1 320px",
@@ -363,24 +413,34 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                 color: subtleText,
               }}
             >
-              <strong>{validCompletedCount} / {totalModules}</strong> core quizzes completed
+              <strong>
+                {validCompletedCount} / {totalModules}
+              </strong>{" "}
+              core quizzes completed
             </div>
           </section>
 
-          {/* --- NEW: EXPANDED AI GENERATOR CARD --- */}
           <section
             style={{
               ...cardBase,
               border: `2px solid ${accentColor}`,
               display: "flex",
               flexDirection: "column",
-              flexGrow: 1, // This is the magic CSS that forces it to stretch down!
-              justifyContent: "space-between"
+              flexGrow: 1,
+              justifyContent: "space-between",
+              minHeight: "420px",
             }}
             aria-labelledby="ai-heading"
           >
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "16px",
+                }}
+              >
                 <h2
                   id="ai-heading"
                   style={{
@@ -389,43 +449,74 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                     fontWeight: 600,
                     display: "flex",
                     alignItems: "center",
-                    gap: "8px"
+                    gap: "8px",
                   }}
                 >
-                  <span role="img" aria-label="robot">🤖</span> Adaptive AI Threats
+                  <span role="img" aria-label="robot">
+                    🤖
+                  </span>{" "}
+                  Adaptive AI Threats
                 </h2>
-                <span style={{
-                  background: highContrast ? '#ff0' : '#e0e7ff',
-                  color: highContrast ? '#000' : '#3730a3',
-                  padding: '4px 10px',
-                  borderRadius: '999px',
-                  fontSize: '0.75rem',
-                  fontWeight: '700',
-                  letterSpacing: '0.5px'
-                }}>
+                <span
+                  style={{
+                    background: highContrast ? "#ff0" : "#e0e7ff",
+                    color: highContrast ? "#000" : "#3730a3",
+                    padding: "4px 10px",
+                    borderRadius: "999px",
+                    fontSize: "0.75rem",
+                    fontWeight: "700",
+                    letterSpacing: "0.5px",
+                  }}
+                >
                   BETA
                 </span>
               </div>
 
-              <p style={{ color: subtleText, fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '24px' }}>
-                Go beyond the basics. Our Generative AI engine creates zero-day, highly sophisticated phishing scenarios on the fly. No two simulations are ever the same.
+              <p
+                style={{
+                  color: subtleText,
+                  fontSize: "0.95rem",
+                  lineHeight: "1.5",
+                  marginBottom: "24px",
+                }}
+              >
+                Go beyond the basics. Our Generative AI engine creates zero-day, highly
+                sophisticated phishing scenarios on the fly. No two simulations are ever the same.
               </p>
 
-              {/* Middle Section: Configuration Options */}
-              <div style={{
-                background: highContrast ? '#111' : '#f8fafc',
-                borderRadius: '8px',
-                padding: '16px',
-                marginBottom: '24px',
-                border: `1px solid ${borderColor}`
-              }}>
-                <h3 style={{ fontSize: '0.9rem', fontWeight: '600', margin: '0 0 12px 0', color: textColor, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              <div
+                style={{
+                  background: highContrast ? "#111" : "#f8fafc",
+                  borderRadius: "8px",
+                  padding: "16px",
+                  marginBottom: "24px",
+                  border: `1px solid ${borderColor}`,
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "0.9rem",
+                    fontWeight: "600",
+                    margin: "0 0 12px 0",
+                    color: textColor,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.5px",
+                  }}
+                >
                   Configure Simulation
                 </h3>
 
-                {/* Option 1: Threat Vector */}
-                <div style={{ marginBottom: '16px' }}>
-                  <label htmlFor="threat-vector" style={{ display: 'block', fontSize: '0.85rem', color: subtleText, marginBottom: '6px', fontWeight: '500' }}>
+                <div style={{ marginBottom: "16px" }}>
+                  <label
+                    htmlFor="threat-vector"
+                    style={{
+                      display: "block",
+                      fontSize: "0.85rem",
+                      color: subtleText,
+                      marginBottom: "6px",
+                      fontWeight: "500",
+                    }}
+                  >
                     Target Vector
                   </label>
                   <select
@@ -433,9 +524,14 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                     value={aiVector}
                     onChange={(e) => setAiVector(e.target.value)}
                     style={{
-                      width: '100%', padding: '10px', borderRadius: '6px',
-                      border: `1px solid ${borderColor}`, background: cardColor, color: textColor,
-                      fontSize: '0.95rem', cursor: 'pointer'
+                      width: "100%",
+                      padding: "10px",
+                      borderRadius: "6px",
+                      border: `1px solid ${borderColor}`,
+                      background: cardColor,
+                      color: textColor,
+                      fontSize: "0.95rem",
+                      cursor: "pointer",
                     }}
                   >
                     <option value="mixed">Mixed (All Vectors)</option>
@@ -445,9 +541,17 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                   </select>
                 </div>
 
-                {/* Option 2: Difficulty */}
                 <div>
-                  <label htmlFor="difficulty" style={{ display: 'block', fontSize: '0.85rem', color: subtleText, marginBottom: '6px', fontWeight: '500' }}>
+                  <label
+                    htmlFor="difficulty"
+                    style={{
+                      display: "block",
+                      fontSize: "0.85rem",
+                      color: subtleText,
+                      marginBottom: "6px",
+                      fontWeight: "500",
+                    }}
+                  >
                     Sophistication Level
                   </label>
                   <select
@@ -455,9 +559,14 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
                     value={aiDifficulty}
                     onChange={(e) => setAiDifficulty(e.target.value)}
                     style={{
-                      width: '100%', padding: '10px', borderRadius: '6px',
-                      border: `1px solid ${borderColor}`, background: cardColor, color: textColor,
-                      fontSize: '0.95rem', cursor: 'pointer'
+                      width: "100%",
+                      padding: "10px",
+                      borderRadius: "6px",
+                      border: `1px solid ${borderColor}`,
+                      background: cardColor,
+                      color: textColor,
+                      fontSize: "0.95rem",
+                      cursor: "pointer",
                     }}
                   >
                     <option value="intermediate">Intermediate (Standard)</option>
@@ -468,7 +577,6 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
               </div>
             </div>
 
-            {/* Bottom Section: Generate Button */}
             <button
               style={{
                 ...pillButton,

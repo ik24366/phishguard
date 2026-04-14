@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import VishingScenario from './VishingScenario';
 import SocialMediaScenario from './SocialMediaScenario';
 
-export default function TrainingModule({ highContrast, onNext, moduleId, onComplete, aiQuizData }) {
+export default function TrainingModule({ highContrast, onNext, moduleId, onComplete, aiQuizData, activeModuleId
+}) {
   // --- STATE MANAGEMENT ---
   const [moduleData, setModuleData] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -139,12 +140,36 @@ export default function TrainingModule({ highContrast, onNext, moduleId, onCompl
     }
   };
 
-  const handleFinishModule = () => {
-    // Tell App.js we are done so it saves the progress
-    if (onComplete && moduleId !== "AI") {
-      onComplete(moduleId);
+  const token = localStorage.getItem("token");
+  const handleFinishModule = async () => {
+    if (moduleId !== "AI") {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/update-progress/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${token}`,
+          },
+          body: JSON.stringify({
+            module_id: moduleId,
+            score: score,
+            completed: true,
+          }),
+        });
+
+        if (!response.ok) throw new Error("Failed to update progress");
+
+        const data = await response.json();
+        console.log("Progress updated:", data);
+      } catch (err) {
+        console.error("Progress update error:", err);
+      }
+
+      if (onComplete) {
+        onComplete(moduleId);
+      }
     }
-    // Return to dashboard
+
     onNext();
   };
 
@@ -372,4 +397,6 @@ export default function TrainingModule({ highContrast, onNext, moduleId, onCompl
       </section>
     </div>
   );
+
+
 }

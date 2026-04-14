@@ -1,8 +1,14 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Module
+from .models import Module,UserModuleProgress
 from .serializers import ModuleSerializer, ModuleListSerializer
+from django.contrib.auth.decorators import login_required
+from api.models import UserModuleProgress
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from django.utils import timezone
+
 
 # --- IMPORTS FOR AI ---
 import json
@@ -132,3 +138,56 @@ def generate_ai_quiz(request):
     except Exception as e:
         print(f"AI Generation Error: {e}")
         return Response({"error": "Failed to generate AI scenario"}, status=500)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_stats(request):
+    progress = UserModuleProgress.objects.filter(user=request.user).first()
+    return Response({
+        'level': getattr(progress, 'level', 1),
+        'streak': getattr(progress, 'streak_count', 0),
+        'score': getattr(progress, 'total_score', 0)
+    })
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def update_progress(request):
+    module_id = request.data.get("module_id")
+    score = int(request.data.get("score", 0))
+    completed = bool(request.data.get("completed", True))
+
+    module = Module.objects.get(id=module_id)
+    progress, created = UserModuleProgress.objects.get_or_create(
+        user=request.user,
+        module=module,
+        defaults={
+            "score": 0,
+            "total_score": 0,
+            "streak_count": 0,
+            "level": 1,
+            "is_completed": False,
+        }
+    )
+
+    progress.score = score
+    progress.total_score += score
+    progress.is_completed = completed
+    progress.last_attempted = timezone.now()
+
+    if completed:
+        progress.streak_count += 1
+
+    if progress.total_score >= 100:
+        progress.level = 2
+    if progress.total_score >= 250:
+        progress.level = 3
+
+    progress.save()
+
+    return Response({
+        "success": True,
+        "level": progress.level,
+        "streak": progress.streak_count,
+        "score": progress.total_score,
+        "module_completed": progress.is_completed,
+    })

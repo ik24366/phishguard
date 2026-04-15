@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm";
 import Dashboard from "./Dashboard";
 import TrainingModule from "./TrainingModule";
 import VishingScenario from './VishingScenario';
-
+import { ReactComponent as PhishguardLogo } from './PhishguardLogo.svg';
 
 export default function App() {
   const [page, setPage] = useState("login");
@@ -48,13 +48,19 @@ export default function App() {
       {/* HEADER */}
       <header style={{
         display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "16px 24px", background: highContrast ? "#222" : "#fff",
-        borderBottom: `1px solid ${highContrast ? "#444" : "#e5e7eb"}`
+        padding: "16px 24px", background: highContrast ? "#000" : "#0B1120",
+        borderBottom: `1px solid ${highContrast ? "#444" : "#1e293b"}`,
+        boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
       }}>
-        <h1 style={{ fontSize: "1.25rem", margin: 0, fontWeight: "bold" }}>PhishGuard</h1>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", color: "#fff" }}>
+          <PhishguardLogo style={{ width: "32px", height: "auto", fill: "currentColor", transform: "scale(1.2)" }} />
+          <h1 style={{ fontSize: "1.3rem", margin: 0, fontWeight: "bold", letterSpacing: "0.5px" }}>
+            PhishGuard
+          </h1>
+        </div>
         {page !== "login" && (
           <button onClick={() => { setPage("login"); setAiQuizData(null); }}
-            style={{ background: "none", border: "none", color: highContrast ? "#fff" : "#4b5563", cursor: "pointer", fontWeight: "600" }}>
+            style={{ background: "none", border: "none", color: "#e2e8f0", cursor: "pointer", fontWeight: "600", padding: "8px 12px" }}>
             Log Out
           </button>
         )}

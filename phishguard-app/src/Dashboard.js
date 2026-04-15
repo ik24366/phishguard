@@ -5,6 +5,7 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
   const [loading, setLoading] = useState(true);
   const [aiLoading, setAiLoading] = useState(false);
   const [userStats, setUserStats] = useState({ level: 1, streak: 0, score: 0 });
+  const [activityLog, setActivityLog] = useState([]);
 
   const [aiVector, setAiVector] = useState("mixed");
   const [aiDifficulty, setAiDifficulty] = useState("intermediate");
@@ -45,6 +46,21 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
       })
       .finally(() => {
         setLoading(false);
+      });
+
+    fetch("http://127.0.0.1:8000/api/user-history/", {
+      headers: {
+        "Authorization": `Token ${token}`
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setActivityLog(data);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to load user history:", err);
       });
   }, []);
 
@@ -598,6 +614,94 @@ export default function Dashboard({ highContrast, onStartTraining, completedModu
             </button>
           </section>
         </div>
+
+        {/* --- ACTIVITY LOG FULL WIDTH SECTION --- */}
+        <section
+          style={{
+            ...cardBase,
+            width: "100%",
+            marginTop: "8px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+          aria-labelledby="history-heading"
+        >
+          <h2
+            id="history-heading"
+            style={{
+              marginTop: 0,
+              marginBottom: "16px",
+              fontSize: "1.1rem",
+              fontWeight: 600,
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <span role="img" aria-label="clipboard">
+              📋
+            </span>{" "}
+            Training Log
+          </h2>
+
+          {activityLog.length === 0 ? (
+            <p style={{ color: subtleText, fontSize: "0.95rem" }}>
+              No completed training sessions yet. Start a module above to build your history!
+            </p>
+          ) : (
+            <div
+              style={{
+                display: "grid",
+                gap: "12px",
+              }}
+            >
+              {activityLog.map((log) => {
+                const date = new Date(log.last_attempted);
+                return (
+                  <div
+                    key={log.id}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      padding: "12px 16px",
+                      borderRadius: "8px",
+                      background: highContrast ? "#222" : "#f8fafc",
+                      border: `1px solid ${borderColor}`,
+                    }}
+                  >
+                    <div>
+                      <div style={{ fontWeight: 600, fontSize: "0.98rem", marginBottom: "4px" }}>
+                        {log.module_title}
+                      </div>
+                      <div style={{ color: subtleText, fontSize: "0.85rem" }}>
+                        {date.toLocaleDateString(undefined, {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        fontWeight: 700,
+                        color: accentColor,
+                        background: highContrast ? "#444" : "#e0e7ff",
+                        padding: "6px 12px",
+                        borderRadius: "999px",
+                        fontSize: "0.9rem",
+                      }}
+                    >
+                      Score: {log.score}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
       </main>
     </div>
   );

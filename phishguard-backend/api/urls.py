@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
-from .views import get_quizzes, get_module_list, get_quiz_by_id, generate_ai_quiz, user_stats, update_progress
+from .views import get_quizzes, get_module_list, get_quiz_by_id, generate_ai_quiz, user_stats, update_progress, user_history
 
 urlpatterns = [
     path('quizzes/', get_quizzes),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('generate-ai-quiz/', generate_ai_quiz, name='generate-ai-quiz'),
     path('user-stats/', user_stats),
     path('update-progress/', update_progress),
+    path('user-history/', user_history),
 ]

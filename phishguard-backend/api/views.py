@@ -191,3 +191,18 @@ def update_progress(request):
         "score": progress.total_score,
         "module_completed": progress.is_completed,
     })
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_history(request):
+    # Fetch all completed modules for this user, ordered by most recently attempted
+    history = UserModuleProgress.objects.filter(user=request.user, is_completed=True).order_by('-last_attempted')
+    data = []
+    for progress in history:
+        data.append({
+            "id": progress.id,
+            "module_title": progress.module.title,
+            "score": progress.score,
+            "last_attempted": progress.last_attempted
+        })
+    return Response(data)

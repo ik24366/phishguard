@@ -49,6 +49,12 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
+
+### 3. Load Initial Data
+To populate the modules and questions immediately:
+```bash
+python manage.py loaddata full_api_data.json
+```
 *The backend API serves on `http://127.0.0.1:8000/`*
 
 ### 2. Frontend Setup (React)

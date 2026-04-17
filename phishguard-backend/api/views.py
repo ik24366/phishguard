@@ -17,9 +17,9 @@ import random
 import datetime 
 from openai import OpenAI
 
-# Initialize the OpenAI client. 
-# REPLACE THIS WITH YOUR NEW API KEY!
-client = OpenAI(api_key="...")
+# Initialize the OpenAI client using an environment variable
+# Initialize the OpenAI client (checks for environment variable first, falls back to hardcoded key)
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "..."))
 
 @api_view(["GET"])
 def get_quizzes(request):

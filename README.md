@@ -28,44 +28,46 @@ PhishGuard is an advanced, accessible cybersecurity awareness platform built as 
 * Python 3
 * Django & Django REST Framework (Token Authentication)
 * PostgreSQL Database
+* Docker & Docker Compose
 
 **AI Integration**
 * OpenAI API (Zero-Day Threat Synthesis)
 
 ---
 
-## ⚙️ Getting Started (Local Development)
+## ⚙️ Getting Started (Docker Environment)
 
-This project requires simultaneous execution of the frontend client and the backend server.
+This project is fully containerized using Docker, allowing both the React frontend and Django/PostgreSQL backend to run simultaneously without requiring local Node.js or Python environments.
 
-### 1. Backend Setup (Django)
-```bash
-cd phishguard-backend
-# Ensure PostgreSQL is running locally
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+### 1. Configure Environment Variables
+Create a `.env` file in the root directory (where `docker-compose.yml` is located) and add your OpenAI API Key to enable the Generative AI Threat Engine:
+```env
+OPENAI_API_KEY=sk-your-api-key-here
 ```
 
-### 3. Load Initial Data
-To populate the modules and questions immediately:
+### 2. Build and Start the Containers
+Ensure Docker Desktop is running, then execute the following in the project root:
 ```bash
-python manage.py loaddata full_api_data.json
+docker compose up --build
 ```
-*The backend API serves on `http://127.0.0.1:8000/`*
+*The React frontend will be available at `http://localhost:3000/` and the Django API at `http://localhost:8000/`.*
 
-### 2. Frontend Setup (React)
-Open a new terminal window:
+### 3. Apply Database Migrations
+Open a new terminal window and run the following to build the database tables:
 ```bash
-cd phishguard-app
-npm install
-npm start
+docker compose exec backend python manage.py migrate
 ```
-*The app will automatically open at `http://localhost:3000/`*
 
----
+### 4. Load Initial Curated Data (Required)
+By default, the Docker database is empty. To populate the pre-curated training modules and learning paths, you must restore the provided SQL backup file into the PostgreSQL container.
 
+First, copy the backup file into the database container:
+```bash
+docker cp phishguard-backend/phishguard_backup.sql phishguard-db-1:/phishguard_backup.sql
+```
 
+Next, execute the SQL file to restore the data:
+```bash
+docker exec -i phishguard-db-1 psql -U ismailkhan -d phishguard_db -f /phishguard_backup.sql
+```
+*(Note: You can safely ignore any "relation already exists" warnings during this process. Refresh `http://localhost:3000` after this completes to view the populated dashboard).*

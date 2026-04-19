@@ -8,6 +8,10 @@ from api.models import UserModuleProgress
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
+from django.contrib.auth import get_user_model
+from rest_framework.authtoken.models import Token
+
+User = get_user_model()
 
 
 # --- IMPORTS FOR AI ---
@@ -19,7 +23,7 @@ from openai import OpenAI
 
 # Initialize the OpenAI client using an environment variable
 # Initialize the OpenAI client (checks for environment variable first, falls back to hardcoded key)
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "..."))
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 @api_view(["GET"])
 def get_quizzes(request):
@@ -191,6 +195,29 @@ def update_progress(request):
         "score": progress.total_score,
         "module_completed": progress.is_completed,
     })
+
+@api_view(['POST'])
+def register(request):
+    username = request.data.get('username')
+    password = request.data.get('password')
+    
+    if not username or not password:
+        return Response({"error": "Username and password required"}, status=400)
+    
+    if User.objects.filter(username=username).exists():
+        return Response({"error": "Username already exists"}, status=400)
+    
+    # Create the user
+    user = User.objects.create_user(username=username, password=password)
+    
+    # Create the token for the new user
+    token, created = Token.objects.get_or_create(user=user)
+    
+    return Response({
+        "token": token.key,
+        "username": user.username,
+        "message": "User registered successfully"
+    }, status=201)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
